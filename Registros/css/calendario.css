@@ -1,0 +1,318 @@
+/* Agenda semanal (calendario) – complementa citas.css */
+.cal-wrap {
+    padding-top: 28px;
+    padding-bottom: 56px
+}
+
+.agenda-cal {
+    padding: 18px
+}
+
+.week-scroll {
+    overflow: auto;
+    max-height: 72vh;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    margin-top: 10px
+}
+
+.week {
+    display: grid;
+    grid-template-columns: 78px repeat(7,minmax(132px,1fr));
+    min-width: 1000px
+}
+
+.wk-corner, .wk-head {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background: #fff;
+    border-bottom: 1px solid var(--line)
+}
+
+.wk-corner {
+    left: 0;
+    z-index: 4
+}
+
+.wk-head {
+    text-align: center;
+    padding: 10px 4px;
+    border-left: 1px solid var(--line)
+}
+
+    .wk-head .dow {
+        display: block;
+        font-weight: 600;
+        text-transform: capitalize
+    }
+
+    .wk-head .dnum {
+        font-size: .82rem;
+        color: var(--muted)
+    }
+
+    .wk-head.is-today {
+        background: var(--blue-l)
+    }
+
+.wk-hour {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background: #fff;
+    padding: 8px 10px;
+    font-size: .82rem;
+    color: var(--muted);
+    text-align: right;
+    border-top: 1px solid var(--line)
+}
+
+.wk-cell {
+    min-height: 76px;
+    padding: 4px;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 4px
+}
+
+    .wk-cell.is-today {
+        background: #f3f9fd
+    }
+
+.cita {
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    padding: 6px 8px;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--blue);
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    line-height: 1.25
+}
+
+    .cita:hover {
+        box-shadow: var(--shadow);
+        background: var(--bg)
+    }
+
+    .cita b {
+        font-size: .82rem
+    }
+
+    .cita span {
+        font-size: .78rem;
+        color: var(--muted);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap
+    }
+
+    .cita.t1 {
+        border-left-color: var(--green)
+    }
+
+    .cita.t2 {
+        border-left-color: #e0a030
+    }
+
+    .cita.t3 {
+        border-left-color: #8a63c7
+    }
+
+    /* Citas de días anteriores: se ven, pero no se abren */
+    .cita.pasada,
+    .cita.pasada:hover {
+        cursor: default;
+        opacity: .55;
+        color: inherit;
+        background: #f6f7f9;
+        box-shadow: none
+    }
+
+/* Formulario
+   La página se carga dentro de default.aspx, donde Bootstrap define .modal { display:none }.
+   Se usa el id para ganar especificidad y controlar la visibilidad solo con el atributo hidden. */
+#modalCita {
+    position: fixed;
+    inset: 0;
+    background: rgba(31,45,61,.45);
+    display: grid;
+    place-items: center;
+    padding: 16px;
+    z-index: 1060;
+    overflow: auto
+}
+
+    #modalCita[hidden] {
+        display: none
+    }
+
+    #modalCita .modal-card {
+        background: #fff;
+        border-radius: var(--radius);
+        padding: 24px;
+        width: 100%;
+        max-height: 92vh;
+        overflow: auto
+    }
+
+    #modalCita .modal-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 14px
+    }
+
+#toast {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%);
+    background: var(--ink);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 10px;
+    z-index: 1070;
+    max-width: 92vw
+}
+
+    #toast[hidden] {
+        display: none
+    }
+
+    #toast.ok {
+        background: var(--green-d)
+    }
+
+.modal-wide {
+    max-width: 680px
+}
+
+.info {
+    margin: 12px 0 16px;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--bg);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 18px
+}
+
+    .info div {
+        display: flex;
+        flex-direction: column
+    }
+
+    .info .full {
+        grid-column: 1/-1
+    }
+
+    .info dt {
+        font-size: .78rem;
+        color: var(--muted);
+        font-weight: 600
+    }
+
+    .info dd {
+        margin: 0;
+        font-weight: 500;
+        overflow-wrap: anywhere
+    }
+
+.hint {
+    color: var(--muted);
+    font-size: .78rem
+}
+
+/* Tratamientos de la cita en el modal (solo consulta) */
+.tratamientos-cita {
+    margin: 0 0 16px;
+    padding: 10px 14px;
+    border: 1px solid var(--line);
+    border-radius: 12px
+}
+
+    .tratamientos-cita .tratamientos-titulo {
+        font-size: .78rem;
+        color: var(--muted);
+        font-weight: 600;
+        margin-bottom: 4px
+    }
+
+    .tratamientos-cita ul {
+        list-style: none;
+        margin: 0;
+        padding: 0
+    }
+
+    .tratamientos-cita li {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 5px 0;
+        border-bottom: 1px dashed var(--line)
+    }
+
+        .tratamientos-cita li:last-child {
+            border-bottom: 0
+        }
+
+        .tratamientos-cita li span {
+            overflow-wrap: anywhere
+        }
+
+        .tratamientos-cita li strong {
+            white-space: nowrap
+        }
+
+        .tratamientos-cita li.total {
+            border-top: 1px solid var(--line);
+            margin-top: 2px
+        }
+
+        .tratamientos-cita li.vacio {
+            color: var(--muted);
+            font-size: .85rem
+        }
+
+.static {
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--bg);
+    font-weight: 600
+}
+
+select:disabled {
+    background: var(--gray);
+    color: var(--muted)
+}
+
+@media (max-width:700px) {
+    .info {
+        grid-template-columns: 1fr
+    }
+}
+
+a.btn {
+    text-decoration: none;
+    display: inline-block
+}
+
+input[type=date] {
+    font: inherit;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #fff;
+    color: var(--ink);
+    width: 100%
+}

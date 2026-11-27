@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        body {
+            font-family: Calibri;
+            font-size: 10px;
+        }
+
+        table.border {
+            border-collapse: collapse;
+        }
+
+            table.border th {
+                padding: 5px;
+                border: 1px solid black;
+            }
+
+            table.border td {
+                padding: 5px;
+                border: 1px solid black;
+            }
+    </style>
+</head>
+<body>
+    <table style="width:100%">
+        <tr>
+            <td style="width:50%" align="left" valign="top">
+                <table>
+                    <tr><td align="left"><img src="images/dpie/logo-dpiecenter.png" style="width:220px;height:80px;" /> </td></tr>
+                </table>
+            </td>
+            <td style="width:50%" align="right" valign="top">
+                <table>
+                    <tr><td align="right"><h4 style="margin:0px">DOCUMENTO TRIBUTARIO ELECTRONICO</h4></td></tr>
+                    <tr><td align="right"><h4 style="margin:0px">FACTURA</h4></td></tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+            <td style="width:40%" align="left" valign="top">
+                <table>
+                    <tr><th>Cod. de Generacion:</th><td>7131C11E-CA42-45EF-94C7-86BB7CEF4604</td></tr>
+                    <tr><th>Numero de Control:</th><td>DTE-01-M001P002-000000000001322</td></tr>
+                    <tr><th>Sello de Recepcion:</th><td>20266CAC28624C444E7EB4C0FD93D7659B0AFGVK</td></tr>
+                </table>
+            </td>
+            <td style="width:20%" align="center" valign="top">
+                <table>
+                    <tr><td align="center"><img src="images/dpie/logo-dpiecenter.png" style="width:140px;height:140px;" /> </td></tr>
+                </table>
+            </td>
+            <td style="width:40%" align="left" valign="top">
+                <table>
+                    <tr><th>Modelo Facturación:</th><td>PREVIO</td></tr>
+                    <tr><th>Tipo de Transacción:</th><td>NORMAL</td></tr>
+                    <tr><th>Fecha Emisión:</th><td>22-05-2026</td></tr>
+                    <tr><th>Fecha Procesado:</th><td>22-05-2026 14:03:38</td></tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <table style="width:100%">
+                    <tr>
+                        <td colspan="1" style="width:20%">Cliente:</td>
+                        <td colspan="3" style="width:80%;border-bottom:1px solid black">@CLIENTE</td>
+                    </tr>
+                </table>
+                <table style="width:100%">
+                    <tr>
+                        <td style="width:20%">Documento:</td>
+                        <td style="width:30%;border-bottom:1px solid black">@DOCUMENTO</td>
+                        <td style="width:10%">Fecha:</td>
+                        <td style="width:40%;border-bottom:1px solid black">@FECHA</td>
+                    </tr>
+                </table>
+            </td>
+            <td></td>
+        </tr>
+
+        <tr><td colspan="3" height="30"></td></tr>
+
+        <tr>
+            <td colspan="3">
+                <table class="border" style="width:100%;">
+                    <thead>
+                        <tr style="background-color:#D8D8D8">
+                            <th>Cod.</th>
+                            <th>Cant.</th>
+                            <th>Descripcion</th>
+                            <th>P. Unit</th>
+                            <th>Otros montos no Affect</th>
+                            <th>Desc. por Item</th>
+                            <th>Ventas no sujetas</th>
+                            <th>Ventas Exentas</th>
+                            <th>Ventas Gravadas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @FILAS
+                        <tr>
+                            <td style="border: 0px !important"></td>
+                            <td style="border: 0px !important"></td>
+                            <td align="right">Total:</td>
+                            <td>@TOTAL</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

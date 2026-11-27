@@ -1,0 +1,207 @@
+/* Lista de expedientes (Registros/frm_ListaExpedientes.aspx) */
+.ex-kpi .card-body {
+    display: flex;
+    flex-direction: column;
+    padding: .85rem 1rem;
+}
+
+    .ex-kpi .card-body span {
+        font-size: .75rem;
+        text-transform: uppercase;
+        letter-spacing: .04em;
+        color: #6c757d;
+    }
+
+    .ex-kpi .card-body strong {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: #0b6f78;
+        font-variant-numeric: tabular-nums;
+    }
+
+.ex-letras {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+    .ex-letras .btn {
+        min-width: 34px;
+        padding-left: .5rem;
+        padding-right: .5rem;
+    }
+
+.ex-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #e3f4f6;
+    color: #0b6f78;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: .85rem;
+    flex-shrink: 0;
+}
+
+.ex-tabla .min-w-0 {
+    min-width: 0;
+}
+
+.ex-tabla mark {
+    padding: 0 .1em;
+    background: #fff3c4;
+    border-radius: 2px;
+}
+
+.ex-email {
+    max-width: 220px;
+}
+
+.ex-seccion {
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: #0b6f78;
+    border-bottom: 1px solid rgba(13, 143, 155, .2);
+    padding-bottom: .35rem;
+    margin: .25rem 0 0;
+}
+
+/* ===== Ficha del paciente (Registros/frm_EditExpediente.aspx) ===== */
+.ficha .card {
+    margin-bottom: 1rem;
+}
+
+.fi-foto {
+    position: relative;
+    width: 112px;
+    height: 112px;
+}
+
+    .fi-foto img,
+    .fi-iniciales {
+        width: 112px;
+        height: 112px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #e3f4f6;
+    }
+
+.fi-iniciales {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e3f4f6;
+    color: #0b6f78;
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.fi-foto-cambiar {
+    position: absolute;
+    right: 0;
+    bottom: 2px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #0d8f9b;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+    font-size: 1.1rem;
+}
+
+    .fi-foto-cambiar:hover {
+        background: #0b6f78;
+    }
+
+.fi-datos .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: .875rem;
+}
+
+    .fi-datos .list-group-item span {
+        color: #6c757d;
+        flex-shrink: 0;
+    }
+
+    .fi-datos .list-group-item strong {
+        font-weight: 500;
+        text-align: right;
+    }
+
+.fi-resumen .col {
+    display: flex;
+    flex-direction: column;
+    padding: .5rem 0;
+}
+
+    .fi-resumen .col strong {
+        font-size: 1.4rem;
+        font-weight: 600;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .fi-resumen .col span {
+        font-size: .75rem;
+        color: #6c757d;
+    }
+
+/* Línea de tiempo de citas y reclamos */
+.fi-linea {
+    display: flex;
+    gap: 1rem;
+    padding: .75rem 0 .75rem .75rem;
+    border-left: 3px solid #dbe8ec;
+    margin-left: .25rem;
+}
+
+    .fi-linea + .fi-linea {
+        border-top: 1px solid rgba(0, 0, 0, .05);
+    }
+
+.fi-linea-futura {
+    border-left-color: #198754;
+    background: rgba(25, 135, 84, .04);
+}
+
+.fi-linea-fecha {
+    display: flex;
+    flex-direction: column;
+    min-width: 92px;
+    font-variant-numeric: tabular-nums;
+}
+
+    .fi-linea-fecha span {
+        font-size: .8rem;
+        color: #6c757d;
+    }
+
+.fi-linea-cuerpo {
+    flex: 1;
+    min-width: 0;
+}
+
+.fi-nota {
+    height: 100%;
+    padding: .5rem .65rem;
+    border-radius: 6px;
+    background: rgba(13, 143, 155, .05);
+    font-size: .875rem;
+}
+
+    .fi-nota span {
+        display: block;
+        font-size: .7rem;
+        text-transform: uppercase;
+        letter-spacing: .04em;
+        color: #0b6f78;
+        margin-bottom: .2rem;
+    }

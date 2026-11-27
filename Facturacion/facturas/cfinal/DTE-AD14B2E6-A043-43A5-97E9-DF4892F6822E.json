@@ -1,0 +1,130 @@
+{
+  "identificacion": {
+    "version": 1,
+    "ambiente": "00",
+    "tipoDte": "01",
+    "numeroControl": "DTE-01-M001P001-000000000000005",
+    "codigoGeneracion": "AD14B2E6-A043-43A5-97E9-DF4892F6822E",
+    "tipoModelo": 1,
+    "tipoOperacion": 1,
+    "tipoContingencia": null,
+    "motivoContin": null,
+    "fecEmi": "2026-10-30",
+    "horEmi": "09:26:18",
+    "tipoMoneda": "USD"
+  },
+  "documentoRelacionado": null,
+  "emisor": {
+    "nit": "06140402221052",
+    "nrc": "3123450",
+    "nombre": "CLINICA DPIE S.A DE C.V",
+    "codActividad": "96020",
+    "descActividad": "Venta al por mayor de productos y articulos de belleza y de uso personal",
+    "nombreComercial": "CLINICA DPIE CENTER",
+    "tipoEstablecimiento": "02",
+    "direccion": {
+      "departamento": "06",
+      "municipio": "23",
+      "complemento": "25 ave. Norte, Medicentro la Esperanza, Porton 8, Edificio C local 113"
+    },
+    "telefono": "77294469",
+    "correo": "dte@dpiesv.com",
+    "codEstableMH": null,
+    "codEstable": "M001",
+    "codPuntoVentaMH": null,
+    "codPuntoVenta": "P001"
+  },
+  "receptor": {
+    "tipoDocumento": "13",
+    "numDocumento": "00000001-6",
+    "nrc": null,
+    "nombre": "JOAQUÍN JOSÉ AGUILAR",
+    "codActividad": null,
+    "descActividad": null,
+    "direccion": null,
+    "telefono": "74777821",
+    "correo": "william.zelaya@puntual.com.sv"
+  },
+  "otrosDocumentos": null,
+  "ventaTercero": null,
+  "cuerpoDocumento": [
+    {
+      "numItem": 1,
+      "tipoItem": 2,
+      "numeroDocumento": null,
+      "cantidad": 1.0,
+      "codigo": "2",
+      "codTributo": null,
+      "uniMedida": 59,
+      "descripcion": "Pedicure Clínico",
+      "precioUni": 15.0,
+      "montoDescu": 0.0,
+      "ventaNoSuj": 0.0,
+      "ventaExenta": 0.0,
+      "ventaGravada": 15.0,
+      "tributos": null,
+      "psv": 0.0,
+      "noGravado": 0.0,
+      "ivaItem": 1.73
+    },
+    {
+      "numItem": 2,
+      "tipoItem": 2,
+      "numeroDocumento": null,
+      "cantidad": 1.0,
+      "codigo": "18",
+      "codTributo": null,
+      "uniMedida": 59,
+      "descripcion": "Aplicacion de Anestecia",
+      "precioUni": 5.0,
+      "montoDescu": 0.0,
+      "ventaNoSuj": 0.0,
+      "ventaExenta": 0.0,
+      "ventaGravada": 5.0,
+      "tributos": null,
+      "psv": 0.0,
+      "noGravado": 0.0,
+      "ivaItem": 0.58
+    }
+  ],
+  "resumen": {
+    "totalNoSuj": 0.0,
+    "totalExenta": 0.0,
+    "totalGravada": 20.0,
+    "subTotalVentas": 20.0,
+    "descuNoSuj": 0.0,
+    "descuExenta": 0.0,
+    "descuGravada": 0.0,
+    "porcentajeDescuento": 0.0,
+    "totalDescu": 0.0,
+    "tributos": null,
+    "subTotal": 20.0,
+    "ivaRete1": 0.0,
+    "reteRenta": 0.0,
+    "montoTotalOperacion": 20.0,
+    "totalNoGravado": 0.0,
+    "totalPagar": 20.0,
+    "totalLetras": "VEINTE 00/100 DOLARES",
+    "totalIva": 2.31,
+    "saldoFavor": 0.0,
+    "condicionOperacion": 1,
+    "pagos": [
+      {
+        "codigo": "03",
+        "montoPago": 20.0,
+        "referencia": "15140",
+        "plazo": null,
+        "periodo": null
+      }
+    ],
+    "numPagoElectronico": null
+  },
+  "extension": null,
+  "apendice": [
+    {
+      "campo": "cajero",
+      "etiqueta": "Cajero",
+      "valor": "admin"
+    }
+  ]
+}

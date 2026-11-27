@@ -1,0 +1,34 @@
+﻿D' PIE CENTER - PAQUETE DE DESPLIEGUE
+=====================================
+
+Contenido
+  sitio\          archivos del sitio publicado (Release)
+  sql\            script SQL consolidado (idempotente: se puede ejecutar varias veces)
+  Desplegar.ps1   script de despliegue
+  version.txt     fecha del paquete y huella de DPieCenter.dll
+
+Cómo desplegar (en el servidor, PowerShell como administrador)
+  1. Copie el .zip y Desplegar.ps1 a una misma carpeta del servidor.
+  2. Pruebe primero sin cambiar nada:
+       powershell -ExecutionPolicy Bypass -File .\Desplegar.ps1 -Destino "C:\temp" -Simular
+  3. Despliegue:
+       powershell -ExecutionPolicy Bypass -File .\Desplegar.ps1 -Destino "C:\temp"
+     Opciones:
+       -AppPool "DPieCenter"   detiene e inicia el grupo de aplicaciones (si no, usa app_offline.htm)
+       -AplicarSql             ejecuta el script SQL en la base del Web.config del servidor
+       -Url "https://.../login.aspx"   comprueba al final que el sitio responde
+       -ReemplazarWebConfig    usa el Web.config del paquete (por defecto se conserva el del servidor)
+
+Qué hace
+  - Respalda el sitio actual en <sitio>_respaldos\aaaaMMdd_HHmmss.
+  - Copia los archivos nuevos sin borrar nada del servidor.
+  - Conserva el Web.config del servidor (cadena de conexión y claves).
+  - No toca las facturas (Facturacion\facturas), imágenes de tratamientos ni videos de publicidad:
+    solo agrega los archivos que falten.
+  - Deja un registro en <sitio>_respaldos\despliegue_aaaaMMdd_HHmmss.log.
+
+Volver a la versión anterior
+  powershell -ExecutionPolicy Bypass -File .\Desplegar.ps1 -Destino "C:\temp" -Restaurar "C:\temp_respaldos\aaaaMMdd_HHmmss"
+  (La base de datos no se revierte: los scripts SQL solo agregan; haga un respaldo de la base antes de -AplicarSql.)
+
+El paquete contiene Web.config con la cadena de conexión: guárdelo en un lugar seguro.

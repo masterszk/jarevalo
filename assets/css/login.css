@@ -1,0 +1,237 @@
+/* Inicio de sesión (login.aspx) */
+:root {
+    --lg-acento: #0d8f9b;
+    --lg-acento-oscuro: #0b6f78;
+    --lg-lila: #b591bd;
+    --lg-fondo: #f3f8fa;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+    background: var(--lg-fondo);
+    color: #17323a;
+}
+
+.lg {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Panel de marca */
+.lg-marca {
+    flex: 1.6;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    background: linear-gradient(160deg, #ffffff 0%, #eef7f8 55%, #f4eef6 100%);
+    border-right: 1px solid #e3edf0;
+}
+
+.lg-marca-imagen {
+    width: 100%;
+    max-width: 1100px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 16px 40px rgba(23, 50, 58, .12);
+}
+
+/* Formulario */
+.lg-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+}
+
+.lg-tarjeta {
+    width: 100%;
+    max-width: 420px;
+    background: #fff;
+    border-radius: 18px;
+    padding: 36px 32px 24px;
+    box-shadow: 0 10px 30px rgba(23, 50, 58, .08);
+}
+
+.lg-logo {
+    width: 170px;
+    height: auto;
+    margin-bottom: 12px;
+}
+
+.lg-titulo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--lg-acento-oscuro);
+    margin-bottom: .25rem;
+}
+
+.lg-tarjeta .form-label {
+    font-weight: 500;
+    font-size: .9rem;
+}
+
+.lg-tarjeta .input-group-text {
+    background: #fff;
+    color: #6c8a92;
+}
+
+.lg-tarjeta .form-control:focus {
+    border-color: var(--lg-acento);
+    box-shadow: 0 0 0 .2rem rgba(13, 143, 155, .15);
+}
+
+.lg-ver {
+    border-color: #dee2e6;
+}
+
+/* Edge agrega su propio ojo dentro del campo (solo muestra mientras se mantiene presionado): se usa el botón de la página */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
+
+.lg-tarjeta a {
+    color: var(--lg-acento-oscuro);
+    font-size: .9rem;
+    text-decoration: none;
+}
+
+    .lg-tarjeta a:hover {
+        text-decoration: underline;
+    }
+
+.lg-tarjeta .form-check-input:checked {
+    background-color: var(--lg-acento);
+    border-color: var(--lg-acento);
+}
+
+.lg-entrar {
+    background: var(--lg-acento);
+    border-color: var(--lg-acento);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+    .lg-entrar:hover,
+    .lg-entrar:focus,
+    .lg-entrar:disabled {
+        background: var(--lg-acento-oscuro);
+        border-color: var(--lg-acento-oscuro);
+    }
+
+.lg-pie {
+    margin: 24px 0 0;
+    text-align: center;
+    font-size: .75rem;
+    color: #8aa0a6;
+}
+
+/* Recuperar contraseña (recuperarClave.aspx) */
+.rc-pasos {
+    display: flex;
+    gap: 6px;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+}
+
+    .rc-pasos li {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 6px 4px;
+        border-radius: 999px;
+        font-size: .8rem;
+        color: #8aa0a6;
+        background: #f1f5f7;
+    }
+
+        .rc-pasos li span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #dfe8eb;
+            font-weight: 600;
+            font-size: .75rem;
+        }
+
+        .rc-pasos li.activo {
+            color: var(--lg-acento-oscuro);
+            background: rgba(13, 143, 155, .1);
+            font-weight: 600;
+        }
+
+            .rc-pasos li.activo span,
+            .rc-pasos li.hecho span {
+                background: var(--lg-acento);
+                color: #fff;
+            }
+
+        .rc-pasos li.hecho {
+            color: var(--lg-acento-oscuro);
+        }
+
+.rc-codigo {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: .5em;
+    padding-left: .5em;
+}
+
+.rc-reglas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0;
+    font-size: .78rem;
+    color: #8aa0a6;
+}
+
+    .rc-reglas li::before {
+        content: "○ ";
+    }
+
+    .rc-reglas li.ok {
+        color: #1a7f37;
+    }
+
+        .rc-reglas li.ok::before {
+            content: "✓ ";
+        }
+
+.rc-listo-icono {
+    font-size: 3.5rem;
+    color: var(--lg-acento);
+}
+
+.lg-tarjeta a.rc-boton {
+    color: #fff;
+    font-size: 1rem;
+}
+
+.lg-tarjeta a.disabled {
+    pointer-events: none;
+    color: #8aa0a6;
+}
+
+@media (max-width: 575px) {
+    .lg-tarjeta {
+        padding: 28px 20px 20px;
+        box-shadow: none;
+        background: transparent;
+    }
+}

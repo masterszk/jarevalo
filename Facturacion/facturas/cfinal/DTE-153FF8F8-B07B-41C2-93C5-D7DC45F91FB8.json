@@ -1,0 +1,111 @@
+{
+  "identificacion": {
+    "version": 1,
+    "ambiente": "00",
+    "tipoDte": "01",
+    "numeroControl": "DTE-01-M001P001-000000000000001",
+    "codigoGeneracion": "153FF8F8-B07B-41C2-93C5-D7DC45F91FB8",
+    "tipoModelo": 1,
+    "tipoOperacion": 1,
+    "tipoContingencia": null,
+    "motivoContin": null,
+    "fecEmi": "2026-10-29",
+    "horEmi": "08:55:40",
+    "tipoMoneda": "USD"
+  },
+  "documentoRelacionado": null,
+  "emisor": {
+    "nit": "06140402221052",
+    "nrc": "3123450",
+    "nombre": "D PIE S.A DE C.V",
+    "codActividad": "96020",
+    "descActividad": "Venta al por mayor de productos y articulos de belleza y de uso personal",
+    "nombreComercial": "D PIE CENTER",
+    "tipoEstablecimiento": "02",
+    "direccion": {
+      "departamento": "06",
+      "municipio": "23",
+      "complemento": "Calle de las Amapolas SDA. 7, Col. Brisas de San Francisco #10"
+    },
+    "telefono": "77294469",
+    "correo": "dte@dpiesv.com",
+    "codEstableMH": null,
+    "codEstable": "M001",
+    "codPuntoVentaMH": null,
+    "codPuntoVenta": "P001"
+  },
+  "receptor": {
+    "tipoDocumento": "13",
+    "numDocumento": "03000810-1",
+    "nrc": null,
+    "nombre": "OSCAR ANTONIO MANZANO DIMAS",
+    "codActividad": null,
+    "descActividad": null,
+    "direccion": null,
+    "telefono": "75099276",
+    "correo": "omanzano7f@mail.com"
+  },
+  "otrosDocumentos": null,
+  "ventaTercero": null,
+  "cuerpoDocumento": [
+    {
+      "numItem": 1,
+      "tipoItem": 2,
+      "numeroDocumento": null,
+      "cantidad": 1.0,
+      "codigo": "2",
+      "codTributo": null,
+      "uniMedida": 59,
+      "descripcion": "Pedicure Clínico",
+      "precioUni": 15.0,
+      "montoDescu": 0.0,
+      "ventaNoSuj": 0.0,
+      "ventaExenta": 0.0,
+      "ventaGravada": 15.0,
+      "tributos": null,
+      "psv": 0.0,
+      "noGravado": 0.0,
+      "ivaItem": 1.73
+    }
+  ],
+  "resumen": {
+    "totalNoSuj": 0.0,
+    "totalExenta": 0.0,
+    "totalGravada": 15.0,
+    "subTotalVentas": 15.0,
+    "descuNoSuj": 0.0,
+    "descuExenta": 0.0,
+    "descuGravada": 0.0,
+    "porcentajeDescuento": 0.0,
+    "totalDescu": 0.0,
+    "tributos": null,
+    "subTotal": 15.0,
+    "ivaRete1": 0.0,
+    "reteRenta": 0.0,
+    "montoTotalOperacion": 15.0,
+    "totalNoGravado": 0.0,
+    "totalPagar": 15.0,
+    "totalLetras": "QUINCE 00/100 DOLARES",
+    "totalIva": 1.73,
+    "saldoFavor": 0.0,
+    "condicionOperacion": 1,
+    "pagos": [
+      {
+        "codigo": "01",
+        "montoPago": 15.0,
+        "referencia": null,
+        "plazo": null,
+        "periodo": null
+      }
+    ],
+    "numPagoElectronico": null
+  },
+  "extension": null,
+  "apendice": [
+    {
+      "campo": "cajero",
+      "etiqueta": "Cajero",
+      "valor": "admin"
+    }
+  ]
+}

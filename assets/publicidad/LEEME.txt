@@ -1,0 +1,9 @@
+﻿Videos publicitarios de la pantalla de turnos (Registros/frm_TurnosPacientes.aspx)
+
+- Forma recomendada: menú Opciones > Videos de turnos. Ahí se suben, ordenan y eliminan los videos.
+- También se pueden copiar aquí directamente, en formato .mp4 (H.264) o .webm.
+- Se reproducen en orden alfabético y en bucle: 01-promocion.mp4, 02-servicios.mp4, ...
+- La pantalla revisa esta carpeta cada 10 segundos: los cambios entran sin recargar la página.
+- Recomendado: 1920x1080 o 1280x720. Límite al subir desde la pantalla: 300 MB por video.
+- Los videos no se publican desde Visual Studio: viven solo en el servidor. En IIS, la cuenta del sitio
+  necesita permiso de escritura en esta carpeta para poder subir desde la pantalla.

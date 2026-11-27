@@ -1,0 +1,79 @@
+/* Inbound (Registros/frm_Inbound.aspx) */
+.ib-kpi .card-body {
+    display: flex;
+    flex-direction: column;
+    padding: .85rem 1rem;
+}
+
+    .ib-kpi .card-body span {
+        font-size: .75rem;
+        text-transform: uppercase;
+        letter-spacing: .04em;
+        color: #6c757d;
+    }
+
+    .ib-kpi .card-body strong {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: #0b6f78;
+        font-variant-numeric: tabular-nums;
+    }
+
+.ib-kpi-pendiente.ib-alerta .card-body {
+    box-shadow: inset 4px 0 0 #f2a516;
+}
+
+    .ib-kpi-pendiente.ib-alerta .card-body strong {
+        color: #a86f00;
+    }
+
+.ib-captura {
+    border-top: 3px solid #0d8f9b;
+}
+
+    .ib-captura.ib-modo-editar {
+        border-top-color: #f2a516;
+        background: rgba(242, 165, 22, .05);
+    }
+
+    .ib-captura h6 {
+        color: #0b6f78;
+        font-weight: 600;
+    }
+
+.ib-switch-form {
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding-left: 2.5em;
+}
+
+.ib-tabla td,
+.ib-tabla th {
+    font-variant-numeric: tabular-nums;
+}
+
+.ib-pendiente td:first-child {
+    box-shadow: inset 3px 0 0 #f2a516;
+}
+
+.ib-contesto td {
+    color: #6c757d;
+}
+
+.ib-tel {
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.ib-tabla .form-switch .form-check-input {
+    width: 2.4em;
+    height: 1.25em;
+    cursor: pointer;
+}
+
+    .ib-tabla .form-switch .form-check-input:checked {
+        background-color: #198754;
+        border-color: #198754;
+    }

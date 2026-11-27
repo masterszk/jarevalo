@@ -1,0 +1,479 @@
+/* Dashboard (Dashboard/form_DashboardGeneral.aspx) y reporte de caja (Reportes/frm_repCaja.aspx) */
+.db-cargando {
+    opacity: .6;
+    pointer-events: none;
+    transition: opacity .15s;
+}
+
+.db-kpi .card-body {
+    display: flex;
+    flex-direction: column;
+    gap: .1rem;
+    padding: .85rem 1rem;
+}
+
+    .db-kpi .card-body span {
+        font-size: .75rem;
+        text-transform: uppercase;
+        letter-spacing: .04em;
+        color: #6c757d;
+    }
+
+    .db-kpi .card-body strong {
+        font-size: 1.55rem;
+        font-weight: 600;
+        color: #0b6f78;
+        font-variant-numeric: tabular-nums;
+        line-height: 1.2;
+    }
+
+    .db-kpi .card-body small {
+        font-size: .78rem;
+        color: #6c757d;
+    }
+
+/* KPI principales con variación y tendencia */
+.db-kpi-grande .card-body {
+    padding: 1rem 1.1rem .5rem;
+}
+
+    .db-kpi-grande .card-body strong {
+        display: block;
+        font-size: 2rem;
+    }
+
+.db-kpi-icono {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.45rem;
+}
+
+.db-c-lila { background: rgba(181, 145, 189, .16); color: #8f5f99; }
+.db-c-acento { background: rgba(13, 143, 155, .12); color: #0b6f78; }
+.db-c-exito { background: rgba(25, 135, 84, .12); color: #198754; }
+.db-c-ambar { background: rgba(242, 165, 22, .15); color: #a86f00; }
+
+.db-delta {
+    font-size: .75rem;
+    font-weight: 600;
+    padding: .1rem .45rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    cursor: help;
+}
+
+.db-sube { background: rgba(25, 135, 84, .12); color: #198754; }
+.db-baja { background: rgba(220, 53, 69, .12); color: #b02a37; }
+.db-igual { background: rgba(108, 117, 125, .12); color: #6c757d; }
+
+.db-spark {
+    min-height: 46px;
+    margin: .35rem -.25rem 0;
+}
+
+.db-asistencia {
+    height: 8px;
+    margin-bottom: .9rem;
+    background: rgba(242, 165, 22, .15);
+}
+
+    .db-asistencia .progress-bar {
+        background: #f2a516;
+    }
+
+.db-grafico-top {
+    min-height: 220px;
+}
+
+.db-puesto {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: .75rem;
+    font-weight: 600;
+    background: #eef2f3;
+    color: #495057;
+}
+
+.db-puesto-1 { background: #f2a516; color: #3b2a00; }
+.db-puesto-2 { background: #c9d1d4; color: #343a40; }
+.db-puesto-3 { background: #d9a37a; color: #3d2410; }
+
+.db-kpi-ahora .card-body strong {
+    font-size: 1.2rem;
+    color: #198754;
+}
+
+.db-titulo {
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: #0b6f78;
+    margin-bottom: .75rem;
+}
+
+.db-grafico {
+    min-height: 290px;
+}
+
+.db-grafico-bajo {
+    min-height: 180px;
+}
+
+.db-tabla td,
+.db-tabla th {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Tabla de especialistas: encabezados compactos para que quepan las dos columnas de facturado */
+.db-tabla-esp th,
+.db-tabla-esp.cj-tabla th {
+    white-space: normal;
+    font-size: .8rem;
+    line-height: 1.2;
+    vertical-align: bottom;
+}
+
+.db-barra {
+    height: 5px;
+    margin-top: 4px;
+    background: rgba(13, 143, 155, .1);
+}
+
+    .db-barra .progress-bar {
+        background: #0d8f9b;
+    }
+
+.db-trat + .db-trat {
+    margin-top: .7rem;
+}
+
+.db-hoy {
+    max-height: 330px;
+    overflow-y: auto;
+}
+
+.db-cita {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    padding: .5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+}
+
+.db-cita-hora {
+    font-weight: 600;
+    min-width: 70px;
+    white-space: nowrap;
+    color: #0b6f78;
+    font-variant-numeric: tabular-nums;
+}
+
+.db-cita-cuerpo {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.db-fuente {
+    font-size: .85rem;
+    padding: .3rem .65rem;
+    border-radius: 999px;
+    background: rgba(181, 145, 189, .12);
+}
+
+/* ===== Reporte de caja ===== */
+.cj-tabla td,
+.cj-tabla th {
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.cj-anulado td {
+    color: #adb5bd;
+    text-decoration: line-through;
+}
+
+    .cj-anulado td:last-child {
+        text-decoration: none;
+    }
+
+.cj-grupo .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    gap: .5rem;
+    font-size: .875rem;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Cuadros de alto fijo (450px) con scroll vertical en el contenido; el título y el total quedan fijos */
+.cj-alto {
+    height: 450px;
+}
+
+    .cj-alto > .card-body {
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+    }
+
+.cj-scroll {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+    .cj-scroll thead th {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+/* Título del cuadro con el botón de descarga en la esquina superior derecha */
+.cj-cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+    margin-bottom: .5rem;
+}
+
+.cj-xlsx {
+    line-height: 1;
+    padding: .25rem .45rem;
+}
+
+.cj-grupo-total {
+    display: flex;
+    justify-content: space-between;
+    gap: .5rem;
+    padding-top: .5rem;
+    margin-top: .25rem;
+    border-top: 2px solid #dee2e6;
+    font-size: .875rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+@media print {
+    .cj-alto {
+        height: auto;
+    }
+
+    .cj-scroll {
+        overflow: visible !important;
+    }
+
+    .cj-no-imprimir,
+    .sidebar-wrapper,
+    .topbar,
+    .page-footer,
+    .back-to-top {
+        display: none !important;
+    }
+
+    .page-wrapper,
+    .page-content {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .cj .card {
+        box-shadow: none !important;
+        border: 1px solid #dee2e6 !important;
+        break-inside: avoid;
+    }
+
+    .cj .table-responsive {
+        overflow: visible !important;
+    }
+}
+
+/* ===== Reportes de citas, procedimientos y expedientes ===== */
+.db-lista-alta {
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+.rp-corto {
+    display: inline-block;
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: bottom;
+}
+
+@media print {
+    .db-lista-alta {
+        max-height: none;
+        overflow: visible;
+    }
+
+    .rp-corto {
+        max-width: none;
+        white-space: normal;
+    }
+}
+
+/* ===== Dashboard de usuarios (Dashboard/frm_DashboardUsuarios.aspx) ===== */
+.du-saludo {
+    background: linear-gradient(120deg, rgba(13, 143, 155, .10), rgba(181, 145, 189, .14));
+    border: 0;
+}
+
+    .du-saludo h4 {
+        color: #0b6f78;
+        font-weight: 600;
+    }
+
+.du-kpi-sala.du-activo .card-body {
+    box-shadow: inset 4px 0 0 #f2a516;
+}
+
+    .du-kpi-sala.du-activo .card-body strong {
+        color: #a86f00;
+    }
+
+.du-kpi-atencion.du-activo .card-body {
+    box-shadow: inset 4px 0 0 #0d8f9b;
+}
+
+.du-agenda {
+    max-height: 430px;
+    overflow-y: auto;
+}
+
+.du-cita {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    padding: .55rem .6rem;
+    border-radius: 10px;
+    border-left: 4px solid #dee2e6;
+    margin-bottom: .4rem;
+    background: #fafbfb;
+}
+
+.du-hora {
+    min-width: 70px;
+    white-space: nowrap;
+    font-weight: 600;
+    color: #0b6f78;
+    font-variant-numeric: tabular-nums;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+    .du-hora small {
+        font-weight: 400;
+        color: #8aa0a6;
+    }
+
+.du-cuerpo {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+    .du-cuerpo a {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+.du-paciente {
+    font-weight: 500;
+}
+
+.du-estado {
+    font-size: .75rem;
+    font-weight: 600;
+    padding: .15rem .55rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    background: rgba(108, 117, 125, .12);
+    color: #6c757d;
+}
+
+.du-e-pendiente { border-left-color: #b591bd; }
+.du-e-sala { border-left-color: #f2a516; background: rgba(242, 165, 22, .07); }
+.du-e-sala .du-estado { background: rgba(242, 165, 22, .18); color: #8a5a00; }
+.du-e-atencion { border-left-color: #0d8f9b; background: rgba(13, 143, 155, .07); }
+.du-e-atencion .du-estado { background: rgba(13, 143, 155, .15); color: #0b6f78; }
+.du-e-fin { border-left-color: #198754; opacity: .75; }
+.du-e-fin .du-estado { background: rgba(25, 135, 84, .12); color: #198754; }
+.du-e-cancelada { border-left-color: #dc3545; opacity: .6; }
+.du-e-cancelada .du-paciente { text-decoration: line-through; }
+.du-e-cancelada .du-estado { background: rgba(220, 53, 69, .1); color: #b02a37; }
+
+.du-siguiente {
+    box-shadow: 0 0 0 2px rgba(181, 145, 189, .55);
+    background: rgba(181, 145, 189, .08);
+}
+
+.du-badge-siguiente {
+    background: #b591bd;
+    color: #fff;
+}
+
+.du-lista {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.du-fila {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    padding: .45rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+    font-size: .875rem;
+}
+
+.du-cuando {
+    min-width: 78px;
+    font-size: .78rem;
+    font-weight: 600;
+    color: #0b6f78;
+    font-variant-numeric: tabular-nums;
+}
+
+.du-hoy {
+    background: rgba(242, 165, 22, .1);
+    border-radius: 8px;
+    padding-left: .4rem;
+    padding-right: .4rem;
+}
+
+    .du-hoy .du-cuando {
+        color: #a86f00;
+    }
+
+.du-wa {
+    padding: .1rem .4rem;
+    line-height: 1.2;
+}
+
+/* Tema oscuro de la plantilla */
+html.dark-theme .du-cita { background: rgba(255, 255, 255, .03); }
+
+/* Reporte de caja: columnas de texto largo (motivos, observaciones) y tickets sin costo */
+.cj-tabla td.cj-texto {
+    white-space: normal;
+    min-width: 12rem;
+}
+
+.cj-ticket td {
+    color: #6c757d;
+}

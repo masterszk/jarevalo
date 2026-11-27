@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Manual de uso · D' Pie Center</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm 18mm 15mm; }
+  :root { --verde: #0b6f78; --lila: #8e6bb0; --gris: #5b6770; --borde: #dfe5ea; --fondo: #f4f8fa; }
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", Arial, sans-serif; color: #1f2d33; font-size: 10.5pt; line-height: 1.45; margin: 0; }
+  h1, h2, h3 { color: var(--verde); line-height: 1.2; }
+  h2 { font-size: 18pt; margin: 0 0 4mm; padding-bottom: 2mm; border-bottom: 2px solid var(--verde); }
+  h3 { font-size: 12.5pt; margin: 7mm 0 2mm; }
+  p { margin: 0 0 2.5mm; }
+  ol { margin: 0 0 3mm; padding-left: 6mm; }
+  ol li { margin-bottom: 1.2mm; }
+  ul { margin: 0 0 3mm; padding-left: 5mm; }
+  .modulo { page-break-before: always; }
+  .modulo:not(:has(h2)) { page-break-before: auto; }      /* solo cada módulo empieza en página nueva */
+  h3 { page-break-after: avoid; }
+  figure { margin: 3mm auto 4.5mm; page-break-inside: avoid; width: 82%; }
+  figure img { width: 100%; border: 1px solid var(--borde); border-radius: 4px; display: block; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+  figcaption { font-size: 8.5pt; color: var(--gris); margin-top: 1.2mm; text-align: center; }
+  .nota { background: var(--fondo); border-left: 3px solid var(--verde); padding: 2.5mm 3.5mm; margin: 3mm 0; font-size: 9.5pt; page-break-inside: avoid; }
+  .aviso { background: #fff7e6; border-left: 3px solid #e0a100; padding: 2.5mm 3.5mm; margin: 3mm 0; font-size: 9.5pt; page-break-inside: avoid; }
+  .ruta { font-weight: 600; color: var(--lila); }
+  table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 2mm 0 4mm; }
+  th, td { border: 1px solid var(--borde); padding: 1.6mm 2.2mm; text-align: left; vertical-align: top; }
+  th { background: var(--fondo); color: var(--verde); }
+  .portada { height: 255mm; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+  .portada img { width: 70mm; margin-bottom: 10mm; }
+  .portada h1 { font-size: 30pt; margin: 0 0 3mm; }
+  .portada .sub { font-size: 13pt; color: var(--gris); }
+  .portada .fecha { margin-top: 18mm; color: var(--gris); font-size: 10pt; }
+  .indice > ol { columns: 2; column-gap: 10mm; }
+  .indice > ol > li { break-inside: avoid; }
+  .indice ol { padding-left: 5mm; }
+  .indice > ol > li { margin-bottom: 2mm; font-weight: 600; }
+  .indice ol ol { font-weight: 400; margin-top: 1mm; }
+  .pasos-cortos { columns: 2; column-gap: 8mm; }
+</style>
+</head>
+<body>
+
+<section class="portada">
+  <img src="../../assets/images/logo-dpiecenter-clinica.png" alt="D' Pie Center">
+  <h1>Manual de uso del sistema</h1>
+  <div class="sub">Clínica D' Pie Center · Guía por módulo con pasos y capturas de pantalla</div>
+  <div class="fecha">Versión 1.2 · 20 de noviembre de 2026</div>
+</section>
+
+<section class="modulo indice">
+  <h2>Contenido</h2>
+  <ol>
+    <li>Ingreso al sistema
+      <ol><li>Iniciar sesión</li><li>Recuperar la contraseña</li><li>Pantalla de inicio (dashboard)</li><li>Navegación general</li></ol></li>
+    <li>Módulo Opciones
+      <ol><li>Módulos y opciones del menú</li><li>Permisos por grupo</li><li>Grupos de usuarios</li><li>Usuarios</li><li>Dashboards de inicio</li><li>Datos de la empresa y facturación electrónica</li><li>Videos de la pantalla de turnos</li><li>Sucursales</li></ol></li>
+    <li>Módulo Catálogos
+      <ol><li>Funcionamiento común</li><li>Tratamientos</li><li>Especialistas</li><li>Horarios y demás catálogos</li></ol></li>
+    <li>Módulo Registros
+      <ol><li>Expedientes</li><li>Citas: calendario</li><li>Citas: agendar una cita nueva</li><li>Procedimientos (atención del especialista)</li><li>Pantalla de turnos</li><li>Cupones de descuento</li><li>Inbound (llamadas)</li></ol></li>
+    <li>Módulo Facturación
+      <ol><li>Caja: apertura y cobros pendientes</li><li>Manejo de efectivo: entradas y salidas</li><li>Cobro de citas por adelantado</li><li>Cierre de caja</li><li>Cobrar y emitir el DTE</li><li>Procedimientos en curso</li><li>Anulaciones de DTE</li><li>Diagnóstico DTE</li></ol></li>
+    <li>Módulo Reportes
+      <ol><li>Funcionamiento común</li><li>Expedientes</li><li>Citas</li><li>Procedimientos</li><li>Caja</li></ol></li>
+  </ol>
+  <div class="nota"><strong>Datos de las capturas.</strong> Las imágenes se tomaron del sistema en funcionamiento. Los correos, teléfonos y números de documento de pacientes y usuarios se reemplazaron por valores de ejemplo.</div>
+  <div class="nota"><strong>Permisos.</strong> Cada usuario ve en el menú solo las opciones que su grupo tiene asignadas en <span class="ruta">Opciones › Permisos</span>. Si no encuentra una opción descrita en este manual, solicítela al administrador del sistema.</div>
+</section>
+
+<!-- ===================================================== 1 -->
+<section class="modulo">
+  <h2>1. Ingreso al sistema</h2>
+
+  <h3>1.1 Iniciar sesión</h3>
+  <ol>
+    <li>Abra el sistema en el navegador (Chrome o Edge).</li>
+    <li>Escriba su <strong>Usuario</strong> y su <strong>Contraseña</strong>. El ícono del ojo muestra u oculta la contraseña.</li>
+    <li>Active <strong>Recordar usuario</strong> si trabaja siempre en el mismo equipo.</li>
+    <li>Presione <strong>Entrar</strong>. El sistema abre su pantalla de inicio.</li>
+  </ol>
+  <div class="nota"><strong>Seguridad.</strong> Todas las pantallas y la información del sistema requieren haber iniciado sesión; solo el inicio de sesión, la recuperación de contraseña y la pantalla de turnos son públicos. Si la sesión vence mientras trabaja, aparece el aviso <em>Sesión expirada</em> y el sistema regresa a esta pantalla para ingresar de nuevo.</div>
+  <figure><img src="img/01-login.jpg" alt=""><figcaption>Figura 1. Pantalla de inicio de sesión.</figcaption></figure>
+
+  <h3>1.2 Recuperar la contraseña</h3>
+  <ol>
+    <li>En la pantalla de inicio de sesión, haga clic en <strong>¿Olvidó su contraseña?</strong></li>
+    <li><strong>Paso 1 · Correo:</strong> escriba el correo registrado en su usuario y presione <strong>Enviar código</strong>.</li>
+    <li>Revise su correo (también la carpeta de correo no deseado). Recibirá un mensaje con el asunto <em>Código de recuperación</em> y un código de 6 dígitos que vence en 10 minutos.</li>
+    <li><strong>Paso 2 · Código:</strong> escriba el código. Tiene un número limitado de intentos; si se agotan o el código vence, use <strong>Reenviar código</strong>.</li>
+    <li><strong>Paso 3 · Contraseña:</strong> escriba la nueva contraseña dos veces (mínimo 8 caracteres, con letras y números; no puede repetir las 3 últimas).</li>
+    <li>Presione <strong>Cambiar contraseña</strong> y luego <strong>Ir a iniciar sesión</strong>.</li>
+  </ol>
+  <figure><img src="img/02-recuperar.jpg" alt=""><figcaption>Figura 2. Recuperar contraseña: paso 1, correo electrónico.</figcaption></figure>
+</section>
+
+<section class="modulo">
+  <h3>1.3 Pantalla de inicio (dashboard)</h3>
+  <p>Cada usuario ve el dashboard que tiene asignado en <span class="ruta">Opciones › Usuarios</span>.</p>
+  <p><strong>Dashboard de indicadores (gerencial).</strong></p>
+  <ol>
+    <li>Elija el período con los botones <strong>Hoy</strong>, <strong>7 días</strong>, <strong>Este mes</strong>, <strong>Mes anterior</strong> o <strong>90 días</strong>, o escriba las fechas y presione la lupa.</li>
+    <li>Revise los indicadores: expedientes nuevos, citas, procedimientos, asistencia, pacientes registrados, facturado y cobrado en caja. Cada tarjeta compara con el período anterior.</li>
+    <li>Use el botón de actualizar para recargar los datos.</li>
+  </ol>
+  <figure><img src="img/03-dashboard-general.jpg" alt=""><figcaption>Figura 3. Dashboard de indicadores.</figcaption></figure>
+  <p><strong>Dashboard operativo (administración y especialistas).</strong> Muestra la operación del día: citas programadas, pacientes por llegar, en sala, en atención, atendidos y cancelados; la agenda de hoy, las citas de los próximos 7 días, los cumpleaños de la semana y los tratamientos del mes. Un especialista ve solo sus propias citas.</p>
+  <figure><img src="img/04-dashboard-usuarios.jpg" alt=""><figcaption>Figura 4. Dashboard operativo.</figcaption></figure>
+
+  <h3>1.4 Navegación general</h3>
+  <ul>
+    <li><strong>Menú lateral:</strong> agrupa las opciones por módulo (Opciones, Catálogos, Registros, Facturación, Reportes). El botón ☰ lo oculta o muestra.</li>
+    <li><strong>Buscar opción:</strong> escriba parte del nombre de una pantalla para encontrarla en el menú.</li>
+    <li><strong>Sucursal:</strong> cada usuario trabaja en la sucursal asignada. Los administradores ven en la barra superior el selector de sucursal para cambiar de una a otra; las citas, procedimientos, caja, Inbound y reportes muestran los datos de la sucursal elegida.</li>
+    <li><strong>Casa:</strong> regresa a la pantalla de inicio. <strong>Luna:</strong> cambia entre modo claro y oscuro.</li>
+    <li><strong>Su nombre (arriba a la derecha):</strong> perfil y cerrar sesión.</li>
+  </ul>
+</section>
+
+<!-- ===================================================== 2 -->
+<section class="modulo">
+  <h2>2. Módulo Opciones</h2>
+  <p>Configuración del sistema. Normalmente solo lo usan los administradores.</p>
+
+  <h3>2.1 Módulos y opciones del menú</h3>
+  <ol>
+    <li>Ingrese a <span class="ruta">Opciones › Módulos</span>.</li>
+    <li>A la izquierda están los <strong>módulos</strong> (grupos del menú). Selecciónelo para ver sus <strong>opciones</strong> a la derecha.</li>
+    <li>Para crear, use <strong>Nuevo módulo</strong> o <strong>Nueva opción</strong>; para cambiar nombre, orden o página use el lápiz; la papelera elimina.</li>
+    <li>Después de crear una opción, asígnela a los grupos en <span class="ruta">Opciones › Permisos</span>. Los cambios en el menú se ven al recargar la página.</li>
+  </ol>
+  <figure><img src="img/10-modulos.jpg" alt=""><figcaption>Figura 5. Módulos y opciones del menú.</figcaption></figure>
+
+  <h3>2.2 Permisos por grupo</h3>
+  <ol>
+    <li>Ingrese a <span class="ruta">Opciones › Permisos</span>.</li>
+    <li>Seleccione el <strong>grupo</strong> en la parte superior. El número indica cuántos usuarios tiene.</li>
+    <li>Active o desactive el interruptor de cada opción. El cambio se guarda en el momento.</li>
+    <li>Use <strong>Dar todo</strong> o <strong>Quitar todo</strong> para asignar un módulo completo. Puede filtrar con <strong>Buscar opción</strong>.</li>
+    <li>Los usuarios del grupo verán el cambio al recargar la página o al volver a iniciar sesión.</li>
+  </ol>
+  <figure><img src="img/11-permisos.jpg" alt=""><figcaption>Figura 6. Permisos por grupo.</figcaption></figure>
+</section>
+
+<section class="modulo">
+  <h3>2.3 Grupos de usuarios</h3>
+  <ol>
+    <li>Ingrese a <span class="ruta">Opciones › Grupos</span>.</li>
+    <li>Presione <strong>Nuevo grupo</strong>, escriba el código y la descripción y guarde.</li>
+    <li>Con el botón <strong>Permisos</strong> de cada fila va directamente a asignarle opciones.</li>
+    <li>Un grupo con usuarios no se puede eliminar; primero cambie a esos usuarios de grupo. El grupo Administradores no se puede eliminar.</li>
+  </ol>
+  <figure><img src="img/12-grupos.jpg" alt=""><figcaption>Figura 7. Grupos de usuarios.</figcaption></figure>
+
+  <h3>2.4 Usuarios</h3>
+  <ol>
+    <li>Ingrese a <span class="ruta">Opciones › Usuarios</span>. Arriba verá cuántos usuarios están activos, inactivos y cuántos ingresaron hoy.</li>
+    <li>Presione <strong>Nuevo usuario</strong> y complete nombre, usuario, correo, grupo, <strong>sucursal</strong> donde trabaja, dashboard de inicio y documento (DUI o NIT, se imprime en los DTE como responsable del emisor).</li>
+    <li>Guarde. El sistema genera la clave inicial.</li>
+    <li>Con el lápiz edita el usuario; con la flecha junto al lápiz puede <strong>activar o inactivar</strong>, <strong>restablecer la clave</strong> o eliminar.</li>
+    <li>Filtre por nombre, grupo o estado con los controles sobre la tabla.</li>
+  </ol>
+  <figure><img src="img/13-usuarios.jpg" alt=""><figcaption>Figura 8. Usuarios del sistema.</figcaption></figure>
+</section>
+
+<section class="modulo">
+  <h3>2.5 Dashboards de inicio</h3>
+  <ol>
+    <li>Ingrese a <span class="ruta">Opciones › Dashboard</span>.</li>
+    <li>Cada fila es una página de inicio que se puede asignar a los usuarios. El ojo la muestra; el lápiz la edita.</li>
+    <li>Para que un usuario use un dashboard, asígnelo en <span class="ruta">Opciones › Usuarios</span>.</li>
+  </ol>
+  <figure><img src="img/14-dashboards.jpg" alt=""><figcaption>Figura 9. Dashboards de inicio.</figcaption></figure>
+
+  <h3>2.6 Datos de la empresa</h3>
+  <p>La pantalla tiene tres pestañas.</p>
+  <ol>
+    <li><strong>Datos generales:</strong> nombre comercial, propietario, NRC, NIT, teléfono, actividad económica, ubicación y la cuenta <strong>Correo para envíos (SMTP)</strong>. Esa cuenta envía los códigos de recuperación de contraseña. La clave se guarda cifrada: déjela vacía para conservar la guardada.</li>
+    <li><strong>Facturación electrónica:</strong> datos del emisor de los DTE (razón social, NIT, NRC, actividad, dirección con departamento, municipio y distrito), ambiente, versiones de los documentos, logo que se imprime en el PDF y el correo con que se envían los DTE.</li>
+    <li><strong>Firma electrónica (MH):</strong> configuración del firmador de Hacienda.</li>
+    <li>Presione <strong>Guardar</strong> en cada pestaña. <strong>Deshacer cambios</strong> vuelve a los datos guardados.</li>
+  </ol>
+  <figure><img src="img/15-empresa.jpg" alt=""><figcaption>Figura 10. Datos generales de la empresa.</figcaption></figure>
+</section>
+
+<section class="modulo">
+  <figure><img src="img/16-empresa-dte.jpg" alt=""><figcaption>Figura 11. Datos del emisor para la facturación electrónica.</figcaption></figure>
+
+  <h3>2.7 Videos de la pantalla de turnos</h3>
+  <ol>
+    <li>Ingrese a <span class="ruta">Opciones › Videos de turnos</span>.</li>
+    <li>Arrastre el video al recuadro <strong>Agregar video</strong> o haga clic para seleccionarlo. Formatos .mp4 (H.264) o .webm, hasta 300 MB. La barra muestra el avance; <strong>Cancelar</strong> detiene la carga.</li>
+    <li>En <strong>Videos en la pantalla</strong> cambie el orden con las flechas ▲ ▼; la miniatura abre una vista previa; la papelera elimina el video.</li>
+    <li>La pantalla de turnos toma los cambios en unos 10 segundos, sin recargarla. <strong>Abrir pantalla de turnos</strong> la muestra en otra pestaña.</li>
+  </ol>
+  <figure><img src="img/17-videos.jpg" alt=""><figcaption>Figura 12. Videos de la pantalla de turnos.</figcaption></figure>
+</section>
+
+<section class="modulo">
+  <h3>2.8 Sucursales</h3>
+  <p>Cada sucursal tiene su propia agenda, procedimientos, caja, Inbound y correlativos de DTE. Los <strong>pacientes</strong> (expedientes) y los <strong>tratamientos</strong> se comparten entre todas. Los datos existentes pertenecen a <strong>Casa Matriz</strong>.</p>
+  <ol>
+    <li>Ingrese a <span class="ruta">Opciones › Sucursales</span>. La lista muestra cada sucursal con su código de establecimiento para el DTE, usuarios, especialistas, citas y estado.</li>
+    <li>Presione <strong>Nueva sucursal</strong>. Escriba el <strong>código</strong>, el <strong>nombre</strong>, el teléfono y la dirección (departamento, municipio y distrito).</li>
+    <li>En <strong>Establecimiento para el DTE</strong> indique el código de establecimiento y de punto de venta (y los códigos que asigne Hacienda, si los tiene). Van en el número de control de los DTE; cada sucursal debe tener una combinación distinta.</li>
+    <li>Marque los <strong>especialistas</strong> que atienden en la sucursal y presione <strong>Guardar</strong>. Solo ellos aparecen al agendar citas en esa sucursal.</li>
+    <li>Asigne la sucursal a cada usuario en <span class="ruta">Opciones › Usuarios</span>. Una sucursal se puede inactivar con el botón de estado.</li>
+  </ol>
+  <figure><img src="img/18-sucursales.jpg" alt=""><figcaption>Figura 13. Lista de sucursales.</figcaption></figure>
+  <figure><img src="img/19-sucursal-nueva.jpg" alt=""><figcaption>Figura 14. Formulario de nueva sucursal.</figcaption></figure>
+</section>
+
+<!-- ===================================================== 3 -->
+<section class="modulo">
+  <h2>3. Módulo Catálogos</h2>
+  <p>Listas que usa el resto del sistema: departamentos, municipios, sexos, especialistas, estados de citas, horarios, tratamientos, tipos de documento, tipos de cita y tipos de comprobante.</p>
+
+  <h3>3.1 Funcionamiento común</h3>
+  <ol>
+    <li>Ingrese a <span class="ruta">Catálogos</span> y elija el catálogo.</li>
+    <li>Busque con el cuadro <strong>Buscar</strong> y filtre por <strong>Activos / Inactivos / Todos</strong>. La columna <strong>En uso</strong> indica cuántos registros lo usan.</li>
+    <li>Presione <strong>Nuevo…</strong>, complete los campos obligatorios (marcados con *) y presione <strong>Guardar</strong>.</li>
+    <li>Use el lápiz para editar, el ojo tachado para <strong>inactivar</strong> y la papelera para eliminar. Un registro en uso no se elimina: se inactiva, para no perder el historial.</li>
+  </ol>
+
+  <h3>3.2 Tratamientos</h3>
+  <ol>
+    <li>Ingrese a <span class="ruta">Catálogos › Tratamientos</span> y presione <strong>Nuevo tratamiento</strong>.</li>
+    <li>Escriba el <strong>nombre</strong>, la <strong>duración</strong> en minutos y el <strong>precio</strong>. La duración define el tiempo que ocupa en la agenda y el precio se propone al cobrar.</li>
+    <li>Opcional: características e imagen (JPG o PNG hasta 5 MB). La imagen se muestra al agendar citas.</li>
+    <li>Presione <strong>Guardar</strong>.</li>
+  </ol>
+  <figure><img src="img/20-tratamientos.jpg" alt=""><figcaption>Figura 15. Catálogo de tratamientos.</figcaption></figure>
+</section>
+
+<section class="modulo">
+  <figure><img src="img/21-tratamiento-nuevo.jpg" alt=""><figcaption>Figura 16. Formulario de nuevo tratamiento.</figcaption></figure>
+
+  <h3>3.3 Especialistas</h3>
+  <ol>
+    <li>Ingrese a <span class="ruta">Catálogos › Especialistas</span> y presione <strong>Nuevo especialista</strong>.</li>
+    <li>Escriba el nombre y vincule el <strong>usuario del sistema</strong> que lo atiende. Así, en <span class="ruta">Registros › Procedimientos</span> ese usuario ve solo sus citas.</li>
+    <li>Un usuario solo puede estar vinculado a un especialista activo.</li>
+  </ol>
+  <figure><img src="img/22-especialistas.jpg" alt=""><figcaption>Figura 17. Catálogo de especialistas.</figcaption></figure>
+</section>
+
+<section class="modulo">
+  <h3>3.4 Horarios y demás catálogos</h3>
+  <p>El catálogo de <strong>Horarios</strong> contiene las horas en punto de atención (8:00 AM a 6:00 PM). Las citas guardan su hora de inicio y fin, y el sistema las relaciona con el horario que corresponde. Los catálogos de estados de citas, tipos de cita, tipos de documento, sexos, departamentos, municipios y tipos de comprobante se administran igual (ver 3.1).</p>
+  <figure><img src="img/23-horarios.jpg" alt=""><figcaption>Figura 18. Catálogo de horarios.</figcaption></figure>
+</section>
+
+<!-- ===================================================== 4 -->
+<section class="modulo">
+  <h2>4. Módulo Registros</h2>
+
+  <h3>4.1 Expedientes</h3>
+  <p><strong>Buscar un paciente.</strong></p>
+  <ol>
+    <li>Ingrese a <span class="ruta">Registros › Expedientes</span>. Arriba verá el total de pacientes, nuevos del mes, con cita hoy y atendidos en 90 días.</li>
+    <li>Escriba nombre, apellido, documento, celular o email en el buscador, o use las letras para filtrar por inicial.</li>
+    <li>En <strong>Acciones</strong>: la carpeta abre la ficha, el globo registra un reclamo y la papelera elimina (solo si no tiene historial).</li>
+  </ol>
+  <figure><img src="img/30-expedientes.jpg" alt=""><figcaption>Figura 19. Lista de expedientes.</figcaption></figure>
+  <p><strong>Crear un expediente.</strong></p>
+  <ol>
+    <li>Presione <strong>Nuevo expediente</strong>.</li>
+    <li>Complete los <strong>datos personales</strong> (nombres, apellidos, tipo y número de documento, fecha de nacimiento, sexo), el <strong>contacto</strong> (celular, email, contacto y teléfono de emergencia) y la <strong>dirección</strong>.</li>
+    <li>Indique cómo conoció la clínica y presione <strong>Guardar</strong>.</li>
+    <li>El sistema pregunta si desea <strong>agendar una cita</strong> para el paciente. Si acepta, abre el asistente de citas con el paciente ya seleccionado (ver 4.3).</li>
+  </ol>
+  <div class="nota">Si el celular o teléfono del nuevo expediente coincide con un registro de <span class="ruta">Registros › Inbound</span>, ese registro se inhabilita automáticamente y deja de mostrarse, porque la persona ya es paciente.</div>
+</section>
+
+<section class="modulo">
+  <figure><img src="img/31-expediente-nuevo.jpg" alt=""><figcaption>Figura 20. Formulario de nuevo expediente.</figcaption></figure>
+  <p><strong>Ficha del paciente.</strong></p>
+  <ol>
+    <li>Abra el expediente con la carpeta. A la izquierda verá el resumen (contacto, última visita, próxima cita) con accesos para llamar, escribir y enviar correo.</li>
+    <li>Pestañas: <strong>Datos personales</strong> (editar y <strong>Guardar cambios</strong>), <strong>Citas</strong>, <strong>Procedimientos</strong> (historial con diagnósticos y tratamientos) y <strong>Reclamos</strong>.</li>
+    <li>Regrese a la lista con <strong>← Expedientes</strong>.</li>
+  </ol>
+  <figure><img src="img/32-expediente-ficha.jpg" alt=""><figcaption>Figura 21. Ficha del paciente.</figcaption></figure>
+</section>
+
+<section class="modulo">
+  <h3>4.2 Citas: calendario</h3>
+  <ol>
+    <li>Ingrese a <span class="ruta">Registros › Citas</span>. Se muestra la semana actual con el nombre del paciente en cada cita, incluidos los días ya pasados.</li>
+    <li>Filtre por <strong>Profesional</strong> y cambie de semana con <strong>‹ Anterior</strong>, <strong>Hoy</strong> y <strong>Siguiente ›</strong>.</li>
+    <li>Las citas de días anteriores, y las de horas ya pasadas del día en curso, se muestran solo para consulta: no se pueden abrir ni modificar.</li>
+    <li>Haga clic sobre una cita para ver los datos del paciente y modificarla: profesional, estado, día y hora. Presione <strong>Guardar cambios</strong>. Si el estado es <em>Cancelada</em>, también se cancela la atención abierta.</li>
+    <li>Presione <strong>Agregar</strong> para agendar una cita nueva (ver 4.3).</li>
+  </ol>
+  <figure><img src="img/33-calendario.jpg" alt=""><figcaption>Figura 22. Calendario semanal de citas.</figcaption></figure>
+  <figure><img src="img/34-cita-modificar.jpg" alt=""><figcaption>Figura 23. Modificar una cita.</figcaption></figure>
+</section>
+
+<section class="modulo">
+  <h3>4.3 Citas: agendar una cita nueva</h3>
+  <ol>
+    <li><strong>Paciente:</strong> elija buscar por nombre o por documento, escriba al menos 3 caracteres y presione <strong>Buscar</strong>. Presione <strong>Seleccionar</strong> en el paciente y luego <strong>Siguiente ›</strong>. Si no existe, créelo primero en Expedientes.</li>
+    <li><strong>Tratamientos:</strong> presione <strong>+ Agregar</strong> en uno o varios tratamientos. La duración total define cuánto tiempo se reserva. Presione <strong>Siguiente ›</strong>.</li>
+    <li><strong>Fecha y hora:</strong> elija el <strong>tipo de cita</strong> y el <strong>profesional</strong>. Los horarios en azul están disponibles; los grises ya están ocupados o pasaron. Haga clic en el horario y presione <strong>Siguiente ›</strong>.
+      <ul>
+        <li>Con el tipo de cita <strong>Express</strong> la <strong>hora en curso</strong> siempre está disponible, aunque el profesional ya tenga una cita a esa hora (sobrecupo para atender al paciente que llegó).</li>
+        <li>Cuando una atención ya se cobró en caja, su hora (la hora en curso o una posterior) vuelve a quedar disponible.</li>
+      </ul></li>
+    <li><strong>Confirmar:</strong> revise paciente, profesional, fecha, tratamientos, duración y total. Agregue notas si es necesario (sin información clínica sensible) y presione <strong>Confirmar cita</strong>.</li>
+    <li>El sistema muestra <em>Cita agendada</em>; presione <strong>Ir al calendario</strong>. Si la cita es para la hora en curso, el paciente pasa directamente a la sala de espera del especialista.</li>
+  </ol>
+  <figure><img src="img/35-cita-paso1.jpg" alt=""><figcaption>Figura 24. Paso 1: buscar y seleccionar al paciente.</figcaption></figure>
+  <figure><img src="img/36-cita-paso2.jpg" alt=""><figcaption>Figura 25. Paso 2: seleccionar los tratamientos.</figcaption></figure>
+</section>
+
+<section class="modulo">
+  <figure><img src="img/37-cita-paso3.jpg" alt=""><figcaption>Figura 26. Paso 3: elegir el día y la hora disponibles.</figcaption></figure>
+  <figure><img src="img/38-cita-paso4.jpg" alt=""><figcaption>Figura 27. Paso 4: confirmar la cita.</figcaption></figure>
+</section>
+
+<section class="modulo">
+  <h3>4.4 Procedimientos (atención del especialista)</h3>
+  <p>Pantalla de trabajo del especialista. Solo funciona para usuarios vinculados a un especialista en <span class="ruta">Catálogos › Especialistas</span>; los demás ven el aviso <em>Pantalla solo para especialistas</em>.</p>
+  <ol>
+    <li>Ingrese a <span class="ruta">Registros › Procedimientos</span>. A la derecha está la <strong>cola de hoy</strong>: pacientes en sala de espera y citas del día en orden.</li>
+    <li>Presione <strong>Llamar al siguiente</strong>, o <strong>Llamar</strong> en un paciente de la cola, e inicie la atención. El nombre aparece en la pantalla de turnos como <em>Atendiendo</em>.</li>
+    <li>Registre el diagnóstico y los tratamientos realizados (puede agregar o quitar tratamientos).</li>
+    <li>Presione <strong>Finalizar atención</strong>. Mientras se procesa se muestra un mensaje de espera; al terminar se guarda el diagnóstico y la factura queda pendiente de cobro en Caja. El siguiente paciente <strong>no se llama automáticamente</strong>: cuando esté listo, use de nuevo <strong>Llamar al siguiente</strong>.</li>
+    <li>Para reprogramar, cambiar de especialista o cancelar use <span class="ruta">Facturación › Procedimientos</span> (5.6).</li>
+  </ol>
+  <figure><img src="img/39-procedimientos.jpg" alt=""><figcaption>Figura 28. Procedimientos: cola del día y finalizar atención.</figcaption></figure>
+</section>
+
+<section class="modulo">
+  <h3>4.5 Pantalla de turnos</h3>
+  <ol>
+    <li>Ábrala desde <span class="ruta">Registros › Pantalla de turnos</span> (se abre en una pestaña nueva) o desde Opciones › Videos de turnos. Está pensada para el televisor de la sala de espera y no requiere iniciar sesión.</li>
+    <li>A la izquierda se reproducen los videos en bucle; a la derecha, el paciente que se está <strong>atendiendo</strong> y los <strong>próximos turnos</strong> (primer nombre y primer apellido, hora y especialista).</li>
+    <li>Use los botones de arriba a la derecha para activar el sonido del aviso y para pantalla completa. Cuando se llama a un paciente aparece un aviso grande.</li>
+  </ol>
+  <figure><img src="img/42-turnos.jpg" alt=""><figcaption>Figura 29. Pantalla de turnos de la sala de espera.</figcaption></figure>
+
+  <h3>4.6 Cupones de descuento</h3>
+  <ol>
+    <li>Ingrese a <span class="ruta">Registros › Cupones</span>. Arriba verá los cupones vigentes, usados, vencidos y el descuento del mes.</li>
+    <li>En <strong>Configuración</strong> defina el descuento y la vigencia por defecto.</li>
+    <li>Presione <strong>Nuevo cupón</strong>. Si elige un <strong>paciente</strong>, solo él podrá usarlo; si lo deja vacío es un cupón de promoción y debe escribir el nombre de la persona a quien se entrega. Indique el descuento y guarde. El cupón tiene un código QR que se presenta en caja.</li>
+    <li>Filtre por <strong>Vigentes, Usados, Vencidos, Anulados o Todos</strong>.</li>
+  </ol>
+  <figure><img src="img/40-cupones.jpg" alt=""><figcaption>Figura 30. Cupones de descuento.</figcaption></figure>
+</section>
+
+<section class="modulo" style="page-break-before: always">
+  <h3>4.7 Inbound (llamadas)</h3>
+  <ol>
+    <li>Ingrese a <span class="ruta">Registros › Inbound</span>.</li>
+    <li>En <strong>Nuevo registro</strong> escriba el teléfono y el nombre del cliente, marque <strong>Ya contestó</strong> si corresponde y presione <strong>Guardar</strong>.</li>
+    <li>Si el teléfono ya existe en un expediente (celular o teléfono del paciente), el sistema muestra el aviso <em>Ya existe en expediente</em> con el número y nombre del paciente, <strong>no guarda</strong> el registro y deja el formulario limpio para capturar uno nuevo.</li>
+    <li>En la lista filtre por fechas, estado (pendientes o contestados) o texto, y marque como contestados los pendientes. La lista y los indicadores <strong>no muestran</strong> los registros cuyo teléfono ya pertenece a un expediente.</li>
+    <li>Presione <strong>Excel</strong> para descargar la lista.</li>
+  </ol>
+  <figure><img src="img/41-inbound.jpg" alt=""><figcaption>Figura 31. Registro de llamadas (Inbound).</figcaption></figure>
+</section>
+
+<!-- ===================================================== 5 -->
+<section class="modulo">
+  <h2>5. Módulo Facturación</h2>
+
+  <h3>5.1 Caja: apertura y cobros pendientes</h3>
+  <p>Cada usuario tiene su propia caja del día: abre, cobra y cierra solo lo suyo. Los cobros de otros usuarios no se mezclan en su cierre.</p>
+  <ol>
+    <li>Ingrese a <span class="ruta">Facturación › Caja</span>.</li>
+    <li>Al iniciar el día revise el <strong>fondo de caja</strong> (efectivo inicial). El sistema propone lo que usted <strong>contó al cerrar su caja anterior</strong> y lo indica debajo del campo. Si escribe otro monto, aparece un aviso en rojo con la diferencia y, al presionar <strong>Abrir caja</strong>, el sistema pide confirmar: <strong>Corregir el fondo</strong> o <strong>Sí, abrir con</strong> el monto escrito. Sin caja abierta no se puede cobrar.</li>
+    <li>En <strong>Pendientes de cobro</strong> están las atenciones finalizadas. El total ya lleva el <strong>descuento por tratamiento</strong> (si el tratamiento tiene descuento en <span class="ruta">Catálogos › Tratamientos</span>). Busque por paciente, documento, celular o número de factura y filtre por período.</li>
+    <li>Presione <strong>Cobrar</strong> en la fila del paciente (ver 5.5).</li>
+    <li>Las demás pestañas son: <strong>Citas por adelantado</strong> (5.3), <strong>Emitidos en esta caja</strong> (consulta y reimpresión de los documentos) y <strong>Manejo de Efectivo</strong> (5.2).</li>
+    <li>Al final del día presione <strong>Cerrar caja</strong> (ver 5.4).</li>
+  </ol>
+  <div class="aviso"><strong>Fondo de caja.</strong> Si el fondo no coincide con el efectivo real del cajón, la diferencia aparecerá como faltante o sobrante al cerrar. Use el monto propuesto salvo que el efectivo haya cambiado (por ejemplo, un depósito); en ese caso registre el movimiento en <strong>Manejo de Efectivo</strong>.</div>
+  <figure><img src="img/50-caja.jpg" alt=""><figcaption>Figura 32. Caja: apertura y pendientes de cobro.</figcaption></figure>
+</section>
+
+<section class="modulo">
+  <h3>5.2 Manejo de efectivo: entradas y salidas</h3>
+  <p>Registra el efectivo que entra o sale de la caja sin ser un cobro. Solo se puede usar con la caja abierta de hoy.</p>
+  <ol>
+    <li>Abra la pestaña <strong>Manejo de Efectivo</strong> y presione <strong>Entrada de efectivo</strong> o <strong>Salida de efectivo</strong>. En el formulario puede cambiar entre entrada y salida con los botones de arriba.</li>
+    <li>Escriba el <strong>monto</strong> y elija el tipo:
+      <ul>
+        <li><strong>Entrada:</strong> Reposición de fondo, Cambio (sencillo), Préstamo u Otro.</li>
+        <li><strong>Salida:</strong> Gasto, Pago a proveedor, Depósito bancario, Retiro u Otro. No se puede sacar más del efectivo disponible, que se muestra arriba del formulario.</li>
+      </ul></li>
+    <li>Escriba el <strong>motivo</strong> (obligatorio, al menos 5 caracteres) y, si aplica, una <strong>referencia</strong> (número de factura del proveedor, boleta de depósito, vale…). Presione <strong>Registrar entrada</strong> o <strong>Registrar salida</strong>.</li>
+    <li>La lista muestra las entradas en verde (+) y las salidas en rojo (−). Si registró un movimiento por error, anúlelo con el botón de la fila e indique el motivo. Una entrada no se puede anular si ese efectivo ya salió de la caja: anule primero la salida.</li>
+  </ol>
+  <div class="nota"><strong>Efectivo en caja</strong> = fondo + cobros en efectivo + entradas − salidas. Es el efectivo que debe haber al cerrar.</div>
+  <figure style="width:52%"><img src="img/50b-manejo-efectivo.jpg" alt=""><figcaption>Figura 33. Manejo de efectivo: registrar una entrada o una salida.</figcaption></figure>
+
+  <h3>5.3 Cobro de citas por adelantado</h3>
+  <ol>
+    <li>Abra la pestaña <strong>Citas por adelantado</strong>. Se listan las citas activas de los próximos 30 días con sus tratamientos y el total (con el descuento por tratamiento). Si busca un paciente, se amplía a citas de hasta un año.</li>
+    <li>Presione <strong>Cobrar</strong>, revise el resumen y presione <strong>Ir a cobrar</strong>. Se abre la pantalla de cobro (5.5) y se emite la <strong>factura (DTE) por el total de la cita</strong>. La cita queda marcada como <strong>Pagada</strong>.</li>
+    <li>Al atender la cita, el procedimiento usa ese pago: en caja <strong>solo queda por cobrar lo que se agregue</strong> (tratamientos nuevos). Si no se agregó nada, no queda nada pendiente.</li>
+    <li>Si la cita pagada se <strong>cancela o anula</strong>, el pago queda como <strong>saldo a favor</strong> del paciente. Los saldos se muestran en un aviso arriba de la lista. Se aplican solos al finalizar su próximo procedimiento, o use <strong>Aplicar saldo</strong> en su nueva cita.</li>
+  </ol>
+  <div class="nota">En <span class="ruta">Registros › Citas</span>, al modificar una cita pagada se muestra el aviso del pago por adelantado; el pago se conserva al cambiar la fecha, la hora o el profesional.</div>
+</section>
+
+<section class="modulo">
+  <h3>5.4 Cierre de caja</h3>
+  <ol>
+    <li>Presione <strong>Cerrar caja</strong>. La ventana muestra:
+      <ul>
+        <li><strong>Cobros por forma de pago</strong> de su caja.</li>
+        <li><strong>Resumen de su caja:</strong> valor de los servicios, descuentos por tratamientos, descuentos por cupones y lo cobrado en esta caja (valor de los servicios − descuentos = cobrado).</li>
+        <li><strong>Arqueo del efectivo:</strong> fondo de caja + cobrado en efectivo + entradas − salidas = <strong>efectivo que debe haber</strong>.</li>
+      </ul></li>
+    <li>Si hay procedimientos finalizados hoy en la sucursal que aún no se cobran, aparece un <strong>aviso</strong> con la lista. Es solo informativo: puede cerrar su caja de todas formas.</li>
+    <li>Escriba el <strong>efectivo contado</strong>. El sistema indica si cuadra o si hay sobrante o faltante. Si hay diferencia, explíquela en <strong>Observaciones</strong> (es obligatorio).</li>
+    <li>Presione <strong>Cerrar caja</strong>. Después de cerrar ya no se pueden emitir documentos ese día. Un administrador puede <strong>Reabrir</strong> la caja del día si es necesario (se borra el arqueo registrado).</li>
+  </ol>
+  <div class="nota">Lo contado al cerrar se propone como fondo la próxima vez que abra su caja.</div>
+</section>
+
+<section class="modulo">
+  <h3>5.5 Cobrar y emitir el DTE</h3>
+  <ol>
+    <li>Elija el <strong>tipo de documento</strong>: <strong>Consumidor final</strong> (factura) o <strong>Crédito fiscal</strong>. Para crédito fiscal presione <strong>Datos fiscales</strong> y complete o seleccione los datos del cliente (NIT, NRC, actividad, dirección y distrito).</li>
+    <li>Revise los <strong>servicios</strong>. Puede agregar servicios o quitarlos con la papelera. El total incluye el IVA. Si un tratamiento tiene <strong>descuento</strong>, se muestra el precio original tachado, el % y el precio con descuento; el descuento aparece también en la factura. Los tratamientos sin descuento no muestran nada adicional.</li>
+    <li>Si el paciente tiene cupón, escanee el QR o escriba el código y presione <strong>Aplicar</strong>. El cupón se aplica sobre el precio ya descontado y el total a pagar se actualiza. En la factura el descuento de cada servicio suma el del tratamiento y el del cupón.</li>
+    <li>Elija la forma de pago: <strong>Efectivo</strong>, <strong>Tarjeta</strong> o <strong>Transferencia</strong>. En efectivo escriba el monto recibido con el teclado (<strong>Exacto</strong>, +10, +20, +50) para calcular el cambio.</li>
+    <li>Presione <strong>Pagar</strong> y confirme. Se muestra <em>Espere un momento…</em> mientras se genera el DTE (PDF y JSON).</li>
+    <li>Al terminar, presione <strong>Volver a pendientes</strong>. Si el envío por correo está activo, el cliente recibe el DTE con el asunto <em>Facturación</em>.</li>
+  </ol>
+  <figure><img src="img/51-cobro.jpg" alt=""><figcaption>Figura 34. Pantalla de cobro: tipo de documento, servicios y cupón.</figcaption></figure>
+  <figure><img src="img/52-cobro-pagar.jpg" alt=""><figcaption>Figura 35. Forma de pago, teclado y botón Pagar.</figcaption></figure>
+</section>
+
+<section class="modulo">
+  <h3>5.6 Procedimientos en curso</h3>
+  <ol>
+    <li>Ingrese a <span class="ruta">Facturación › Procedimientos</span>. Se listan los pacientes en atención o en sala de espera de todos los especialistas, incluidos los que quedaron abiertos de días anteriores.</li>
+    <li>Filtre por texto, especialista o estado.</li>
+    <li>En <strong>Acciones</strong> elija <strong>Reprogramar</strong> (nueva fecha y hora, conserva duración y tratamientos), <strong>Cambiar especialista</strong> o <strong>Cancelar</strong> (pide el motivo; cancela la atención y la cita).</li>
+    <li>La atención la finaliza el especialista en <span class="ruta">Registros › Procedimientos</span>.</li>
+  </ol>
+  <figure><img src="img/53-procedimientos-curso.jpg" alt=""><figcaption>Figura 36. Procedimientos en curso.</figcaption></figure>
+
+  <h3>5.7 Anulaciones de DTE</h3>
+  <ol>
+    <li>Ingrese a <span class="ruta">Facturación › Anulaciones</span>. La pestaña <strong>En plazo para anular</strong> muestra los documentos que todavía se pueden invalidar según el plazo de Hacienda (factura 90 días, crédito fiscal 1 día).</li>
+    <li>Filtre por fechas, tipo, cajero o texto. El ícono de documento muestra el PDF.</li>
+    <li>Presione <strong>Anular</strong>, elija el motivo y confirme. Si anula por error en la información u otro motivo, la factura vuelve a la caja para emitir el documento que la reemplaza.</li>
+    <li>Pasado el plazo, la corrección se hace con una nota de crédito. Los plazos se revisan en <strong>Plazos de anulación</strong>.</li>
+  </ol>
+  <figure><img src="img/54-anulaciones.jpg" alt=""><figcaption>Figura 37. Anulaciones de DTE.</figcaption></figure>
+</section>
+
+<section class="modulo">
+  <h3>5.8 Diagnóstico DTE</h3>
+  <ol>
+    <li>Ingrese a <span class="ruta">Facturación › Diagnóstico DTE</span>. El sistema revisa la base de datos, los datos del emisor, el ambiente, la transmisión a Hacienda, la carpeta de archivos y el correo.</li>
+    <li>Cada punto se marca en verde (correcto), amarillo (advertencia) o rojo (impide emitir), con la indicación de qué hacer.</li>
+    <li>Después de corregir, presione <strong>Revisar de nuevo</strong>. Desde esta pantalla también se puede enviar un correo de prueba.</li>
+  </ol>
+  <figure><img src="img/55-diagnostico.jpg" alt=""><figcaption>Figura 38. Diagnóstico de la facturación electrónica.</figcaption></figure>
+</section>
+
+<!-- ===================================================== 6 -->
+<section class="modulo">
+  <h2>6. Módulo Reportes</h2>
+
+  <h3>6.1 Funcionamiento común</h3>
+  <ol>
+    <li>Elija el rango de fechas o use los botones rápidos (<strong>Hoy</strong>, <strong>Esta semana</strong>, <strong>Este mes</strong>, <strong>Mes anterior</strong>, <strong>Este año</strong>).</li>
+    <li>Aplique los filtros del reporte y presione <strong>Consultar</strong>. Los administradores pueden elegir además la <strong>sucursal</strong>. <strong>Quitar filtros</strong> vuelve a los valores iniciales.</li>
+    <li>Revise los indicadores, los resúmenes por categoría y el detalle; el cuadro <strong>Buscar en el detalle</strong> filtra la tabla.</li>
+    <li>Presione <strong>Exportar a Excel (CSV)</strong> para descargar los datos o <strong>Imprimir</strong> para imprimir o guardar como PDF.</li>
+  </ol>
+
+  <h3>6.2 Expedientes</h3>
+  <p>Pacientes registrados en el período: nuevos, ya atendidos, recurrentes, edad promedio y pacientes sin email; distribución por sexo, edad, cómo conocieron la clínica, departamento y usuario que registró. Filtros: sexo, departamento, cómo nos conoció y paciente.</p>
+  <figure><img src="img/60-rep-expedientes.jpg" alt=""><figcaption>Figura 39. Reporte de expedientes.</figcaption></figure>
+</section>
+
+<section class="modulo">
+  <h3>6.3 Citas</h3>
+  <p>Citas del período con su valor programado: atendidas, canceladas, asistencia y pendientes; por estado, especialista, tipo de cita y día de la semana. Filtros: especialista, estado, tipo de cita y paciente.</p>
+  <figure><img src="img/61-rep-citas.jpg" alt=""><figcaption>Figura 40. Reporte de citas.</figcaption></figure>
+
+  <h3>6.4 Procedimientos</h3>
+  <p>Procedimientos realizados: facturado, cobrado, pendiente de cobro y duración promedio de la atención; por especialista, tratamiento y día. Filtros: especialista, tratamiento, tipo de cita y paciente.</p>
+  <figure><img src="img/62-rep-procedimientos.jpg" alt=""><figcaption>Figura 41. Reporte de procedimientos.</figcaption></figure>
+</section>
+
+<section class="modulo">
+  <h3>6.5 Caja</h3>
+  <ol>
+    <li>Ingrese a <span class="ruta">Reportes › Caja</span>. Al abrir muestra directamente la información del <strong>día en curso</strong>.</li>
+    <li>Cambie el rango o elija un <strong>cajero</strong> y presione <strong>Consultar</strong>.</li>
+    <li>Revise el total cobrado, documentos emitidos, ticket promedio, anulados, pendiente de cobro, <strong>manejo de efectivo</strong> (entradas y salidas), arqueo (sobrantes y faltantes), <strong>descuentos por tratamientos y por cupones</strong> y tickets sin costo.</li>
+    <li>Consulte los resúmenes por forma de pago, cajero, tipo de documento y día, y la tabla de aperturas y cierres de caja: fondo, cobrado (con sus descuentos), efectivo, entradas y salidas, esperado, contado y diferencia.</li>
+    <li>La sección <strong>Manejo de efectivo</strong> lista cada entrada (+) y salida (−) con su tipo, motivo y referencia, incluidas las anuladas. En el detalle de cobros, cada documento muestra su descuento por tratamiento y el cupón aplicado.</li>
+    <li>Presione <strong>Cierre de caja (PDF)</strong> para descargar el reporte en formato de cierre de caja, listo para imprimir y firmar.</li>
+  </ol>
+  <figure><img src="img/63-rep-caja.jpg" alt=""><figcaption>Figura 42. Reporte de caja.</figcaption></figure>
+  <div class="nota">Este manual describe la versión del sistema de noviembre de 2026. Para dudas o problemas, comuníquese con el administrador del sistema.</div>
+</section>
+
+</body>
+</html>

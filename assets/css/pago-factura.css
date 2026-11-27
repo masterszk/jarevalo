@@ -1,0 +1,246 @@
+﻿/* Pago de factura (Facturacion/frm_OpenFactura.aspx) */
+.pago-factura .card {
+    margin-bottom: 1rem;
+}
+
+.pago-titulo {
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: #6c757d;
+    margin-bottom: .5rem;
+}
+
+.pago-fiscal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+    margin-top: .5rem;
+}
+
+/* Formas de pago */
+.pago-metodos {
+    display: grid;
+    gap: 4px;
+    margin-bottom: 1rem;
+}
+
+.pago-metodo {
+    height: 63px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: 1rem;
+}
+
+    .pago-metodo i {
+        font-size: 1.35rem;
+    }
+
+    .pago-metodo.active {
+        color: #fff;
+        background-color: #212529;
+    }
+
+.pago-extra {
+    margin-bottom: 1rem;
+}
+
+/* Teclado */
+.pago-teclado {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-bottom: 4px;
+}
+
+    .pago-teclado .btn {
+        height: 54px;
+        border-radius: 0;
+        font-size: 1.05rem;
+    }
+
+    .pago-teclado .pago-limpiar {
+        grid-column: 1 / -1;
+        height: 40px;
+        font-size: .9rem;
+    }
+
+.pago-acciones {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+}
+
+    .pago-acciones .btn {
+        height: 54px;
+        border-radius: 0;
+    }
+
+/* Servicios */
+.pago-items .pago-col-accion {
+    width: 48px;
+}
+
+.pago-items tfoot th {
+    background-color: #f1f1f1;
+}
+
+.pago-items .pago-total th {
+    font-size: 1.05rem;
+}
+
+.pago-items .btn-quitar {
+    padding: 0 .35rem;
+    line-height: 1.4;
+}
+
+.pago-servicios .list-group-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+    .pago-servicios .list-group-item .precio {
+        font-weight: 600;
+        white-space: nowrap;
+    }
+
+/* Monto recibido */
+.pago-monto {
+    text-align: right;
+}
+
+.pago-monto-valor {
+    font-size: 5rem;
+    font-weight: 300;
+    line-height: 1.1;
+    color: #32393f;
+    overflow-wrap: anywhere;
+}
+
+/* Pago combinado: una línea por forma de pago */
+.pago-lineas {
+    text-align: left;
+    margin: .5rem 0;
+}
+
+.pago-linea {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    padding: .55rem .75rem;
+    margin-bottom: .5rem;
+    border: 1px solid #dee2e6;
+    border-radius: .5rem;
+    cursor: pointer;
+    background: #fff;
+}
+
+    .pago-linea.ef {
+        background: #e8f5ee;
+        border-color: #b7dfc7;
+    }
+
+    .pago-linea.sel {
+        border-color: #0d8f9b;
+        box-shadow: 0 0 0 2px rgba(13, 143, 155, .25);
+    }
+
+    .pago-linea .nombre {
+        flex: 1 1 auto;
+        font-size: 1.05rem;
+    }
+
+    .pago-linea .ref {
+        max-width: 190px;
+    }
+
+    .pago-linea .monto {
+        font-size: 1.6rem;
+        font-weight: 600;
+        min-width: 7ch;
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .pago-linea .monto.vacio {
+        color: #adb5bd;
+    }
+
+    .pago-linea .quitar {
+        border: 0;
+        background: transparent;
+        color: #dc3545;
+        font-size: 1.25rem;
+        padding: 0 .25rem;
+        line-height: 1;
+    }
+
+.pago-factura.pagada .pago-linea {
+    pointer-events: none;
+}
+
+.pago-cambio {
+    min-height: 1.5em;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+    .pago-cambio.falta {
+        color: #dc3545;
+    }
+
+    .pago-cambio.ok {
+        color: #198754;
+    }
+
+.pago-factura.pagada .pago-teclado .btn,
+.pago-factura.pagada .pago-metodo,
+.pago-factura.pagada #btnPagar,
+.pago-factura.pagada #btnServicios {
+    pointer-events: none;
+    opacity: .5;
+}
+
+@media (max-width: 575.98px) {
+    .pago-monto-valor {
+        font-size: 3rem;
+    }
+
+    .pago-linea {
+        flex-wrap: wrap;
+    }
+
+        .pago-linea .ref {
+            order: 5;
+            max-width: none;
+            width: 100%;
+        }
+}
+
+/* Cupón de descuento */
+.pago-cupon {
+    border: 1px dashed rgba(181, 145, 189, .7);
+}
+
+    .pago-cupon.aplicado {
+        border-style: solid;
+        border-color: #198754;
+        background: rgba(25, 135, 84, .05);
+    }
+
+.pago-cupon-video {
+    width: 100%;
+    max-height: 220px;
+    border-radius: 8px;
+    background: #000;
+    object-fit: cover;
+}
+
+.pago-descuento th {
+    color: #198754;
+}

@@ -1,0 +1,145 @@
+/* Atención de procedimientos (Registros/frm_Procedimientos.aspx) */
+.procedimientos .card {
+    margin-bottom: 1rem;
+}
+
+
+.pa-etiqueta {
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: #6c757d;
+}
+
+/* Sin paciente en atención */
+.pa-vacio > i {
+    font-size: 3rem;
+    color: #0d8f9b;
+    opacity: .6;
+}
+
+/* Cabecera del paciente */
+.pa-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #e3f4f6;
+    color: #0b6f78;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.pa-cronometro {
+    font-size: 1.75rem;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    color: #198754;
+    line-height: 1.1;
+}
+
+.pa-datos > div {
+    display: flex;
+    flex-direction: column;
+    padding: .35rem .5rem;
+    border-radius: 6px;
+    background: rgba(13, 143, 155, .04);
+}
+
+    .pa-datos > div > span {
+        font-size: .75rem;
+        color: #6c757d;
+    }
+
+    .pa-datos > div > strong {
+        font-weight: 500;
+        word-break: break-word;
+    }
+
+/* Cola del día */
+.pa-cola {
+    max-height: 60vh;
+    overflow-y: auto;
+    margin: 0 -.25rem;
+    padding: 0 .25rem;
+}
+
+.pa-item {
+    display: flex;
+    align-items: flex-start;
+    gap: .75rem;
+    padding: .6rem .5rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    border-bottom-color: rgba(0, 0, 0, .06);
+}
+
+    .pa-item:last-child {
+        border-bottom-color: transparent;
+    }
+
+.pa-item-sigue {
+    background: rgba(255, 193, 7, .08);
+    border-color: rgba(255, 193, 7, .35);
+}
+
+.pa-item-actual {
+    background: rgba(25, 135, 84, .07);
+    border-color: rgba(25, 135, 84, .35);
+}
+
+.pa-hora {
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    min-width: 46px;
+    color: #0b6f78;
+}
+
+.pa-item-cuerpo {
+    flex: 1;
+    min-width: 0;
+}
+
+.pa-item-accion {
+    flex-shrink: 0;
+}
+
+/* Catálogo de tratamientos */
+.pa-tratamiento {
+    padding: 0;
+    border: 1px solid rgba(0, 0, 0, .1);
+    background: transparent;
+    overflow: hidden;
+    transition: border-color .15s, box-shadow .15s;
+}
+
+    .pa-tratamiento:hover,
+    .pa-tratamiento:focus-visible {
+        border-color: #0d8f9b;
+        box-shadow: 0 0 0 .2rem rgba(13, 143, 155, .15);
+    }
+
+    .pa-tratamiento img {
+        height: 100px;
+        object-fit: cover;
+    }
+
+/* Historial */
+.pa-hist {
+    border-left: 3px solid #0d8f9b;
+    padding: .5rem .75rem;
+    margin-bottom: .75rem;
+    background: rgba(13, 143, 155, .04);
+    border-radius: 0 6px 6px 0;
+}
+
+.pa-hist-diag {
+    white-space: pre-line;
+}
+
+.pa-espera {
+    color: #b45309;
+}

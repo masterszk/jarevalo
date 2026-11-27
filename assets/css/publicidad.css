@@ -1,0 +1,41 @@
+﻿/* Opciones > Videos de turnos */
+.pb-zona {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .25rem;
+    min-height: 190px; padding: 1.5rem; text-align: center; cursor: pointer;
+    border: 2px dashed #b9c6d3; border-radius: 12px; background: #f7fafc; color: #33475b;
+    transition: background-color .15s, border-color .15s;
+}
+.pb-zona i { font-size: 2.6rem; color: #2f7fb5; }
+.pb-zona:hover, .pb-zona.arrastre { border-color: #2f7fb5; background: #eaf3fa; }
+.pb-zona.ocupado { opacity: .55; pointer-events: none; }
+.pb-zona:focus-within { outline: 3px solid rgba(47, 127, 181, .35); outline-offset: 2px; }
+.pb-progreso { margin-top: 1rem; }
+
+.pb-lista { display: flex; flex-direction: column; gap: .5rem; }
+.pb-item {
+    display: flex; align-items: center; gap: .75rem; padding: .5rem .75rem;
+    border: 1px solid #e3e8ee; border-radius: 10px; background: #fff;
+}
+.pb-orden {
+    flex: 0 0 auto; width: 1.75rem; height: 1.75rem; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: #eaf3fa; color: #2f7fb5; font-weight: 600; font-size: .85rem;
+}
+.pb-mini {
+    position: relative; flex: 0 0 auto; width: 96px; height: 54px; padding: 0; overflow: hidden;
+    border: 0; border-radius: 6px; background: #111;
+}
+.pb-mini video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pb-mini i {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; color: #fff; text-shadow: 0 1px 4px rgba(0, 0, 0, .6); opacity: .85;
+}
+.pb-mini:hover i, .pb-mini:focus-visible i { opacity: 1; }
+.pb-info { min-width: 0; flex: 1 1 auto; }
+.pb-vacio { padding: 2rem 1rem; text-align: center; color: #6c757d; }
+.pb-vacio i { font-size: 2.4rem; display: block; margin-bottom: .5rem; }
+
+@media (max-width: 575.98px) {
+    .pb-mini { width: 72px; height: 40px; }
+    .pb-item { flex-wrap: wrap; }
+}

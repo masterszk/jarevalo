@@ -1,0 +1,11 @@
+﻿.vs/
+.claude/
+bin/
+obj/
+packages/
+*.user
+Web.config
+App_Data/
+sql/muestra*
+sql/muestras-dte/
+docs/CNR/
