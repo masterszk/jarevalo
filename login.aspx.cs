@@ -155,8 +155,8 @@ namespace DPieCenter
                     creaSession(usuario, grupo, fotoPerfil);
 
                     sqlProccess.mtdSys_Usuario(usuario, "", "", "", "", "", 0, "", "", "", "", 0, "", false, 9);
-                    // El identificador lleva #, % y $: sin codificar, el # cortaba la dirección y el resto quedaba como fragmento
-                    return "D&&Default.aspx?url=" + HttpUtility.UrlEncode(encodeId("2"));
+                    // Sin parámetro url: Default.aspx usa el aplicativo de la clínica (2) por defecto
+                    return "D&&Default.aspx";
                 }
             }
             catch (Exception ex)
@@ -180,12 +180,6 @@ namespace DPieCenter
             usuarios.Add(fotoPerfil);
             Sesion.LimpiarCache();               // permisos y sucursal del usuario anterior
             HttpContext.Current.Session["dpsesion"] = usuarios;
-        }
-
-        private static string encodeId(string id)
-        {
-            string cad = "0X646hgftdrfffcdde453454p34dscvbXX6m876yuhdhjnsdnm6@" + id + "X#032btkpnyteghs%hjs658$gshagsbxbn";
-            return cad;
         }
     }
 }

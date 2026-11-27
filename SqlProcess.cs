@@ -254,7 +254,7 @@ namespace DPieCenter
                 StackFrame stackFrame = stackTrace.GetFrame(1);
                 MethodBase methodBase = stackFrame.GetMethod();
                 obj_logErrores.SaveLogError(LogErrores.TipoError.BaseDeDatos, -1, methodBase.Name, "", e.Message);
-                respuestaBD = "no hay datos";
+                return "no hay datos";
             }
 
             if (dt != null)
@@ -358,7 +358,7 @@ namespace DPieCenter
                 StackFrame stackFrame = stackTrace.GetFrame(1);
                 MethodBase methodBase = stackFrame.GetMethod();
                 obj_logErrores.SaveLogError(LogErrores.TipoError.BaseDeDatos, -1, methodBase.Name, "", e.Message);
-                respuestaBD = "no hay datos";
+                return "no hay datos";
             }
 
             if (dt != null)
@@ -525,7 +525,7 @@ namespace DPieCenter
                 StackFrame stackFrame = stackTrace.GetFrame(1);
                 MethodBase methodBase = stackFrame.GetMethod();
                 obj_logErrores.SaveLogError(LogErrores.TipoError.BaseDeDatos, -1, methodBase.Name, "", e.Message);
-                respuestaBD = "no hay datos";
+                return "no hay datos";
             }
 
             if (dt != null)
@@ -606,7 +606,7 @@ namespace DPieCenter
                 StackFrame stackFrame = stackTrace.GetFrame(1);
                 MethodBase methodBase = stackFrame.GetMethod();
                 obj_logErrores.SaveLogError(LogErrores.TipoError.BaseDeDatos, -1, methodBase.Name, "", e.Message);
-                respuestaBD = "no hay datos";
+                return "no hay datos";
             }
 
             if (dt != null)
@@ -844,7 +844,7 @@ namespace DPieCenter
                 StackFrame stackFrame = stackTrace.GetFrame(1);
                 MethodBase methodBase = stackFrame.GetMethod();
                 obj_logErrores.SaveLogError(LogErrores.TipoError.BaseDeDatos, -1, methodBase.Name, "", e.Message);
-                respuestaBD = "no hay datos";
+                return "no hay datos";
             }
 
             if (dt != null)
@@ -1137,7 +1137,7 @@ namespace DPieCenter
                 StackFrame stackFrame = stackTrace.GetFrame(1);
                 MethodBase methodBase = stackFrame.GetMethod();
                 obj_logErrores.SaveLogError(LogErrores.TipoError.BaseDeDatos, -1, methodBase.Name, "", e.Message);
-                respuestaBD = "no hay datos";
+                return "no hay datos";
             }
 
             if (dt != null)
@@ -1447,9 +1447,6 @@ namespace DPieCenter
         {
 
             string respuestaBD = "";
-            string userName = HttpContext.Current.User.Identity.Name.ToString();
-            string username = HttpContext.Current.Request.LogonUserIdentity.Name.ToString().Split('\\')[1];
-            string nombrt = HttpContext.Current.User.Identity.IsAuthenticated.ToString();
 
             SqlDataAdapter da = new SqlDataAdapter("Sys_SP_Aplicativos", mtd_ExtraeConexion());
             da.SelectCommand.Parameters.AddWithValue("@Id_Aplicativo", id_aplicativo);
